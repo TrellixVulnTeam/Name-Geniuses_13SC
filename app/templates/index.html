@@ -1,0 +1,18 @@
+<!-- extend base layout -->
+{% extends "base.html" %}
+
+{% block content %}
+
+    {% include 'flash.html' %}
+    <div id="headerboxoutside">
+        <div id="headerboxcontent" >
+            <h1> Get an amazing domain name without the hassle.</h1>
+            <div id="bulletpoints">
+            <p>1. Provide a few details about your project</p>
+            <p>2. Wait for domain name suggestions to flood in from our creative users</p>
+            <p>3. Pick a winner</p>
+            </div>
+            <div class="buttonbox"><a href="{{ url_for('register') }}" class="bigbutton button-orange">Tell us about your project now</a></div>
+        </div>
+    </div>
+{% endblock %}

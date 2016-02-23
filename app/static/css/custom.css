@@ -1,0 +1,346 @@
+.container-fluid {
+padding:0px;
+}
+
+#headerboxoutside{
+width:100%;
+display:block;
+background-color:#FFF;
+text-align:center;
+padding-top:40px;
+}
+
+nav.navbar.navbar-default.navbar-static-top{
+background-color:#7EC0EE;
+color:#FFF;
+font-size:1.3em;
+}
+
+.navbar-brand{
+font-size: 1.4em;
+}
+
+nav.navbar.navbar-default.navbar-static-top a{
+color:#FFF;
+}
+
+#headerboxcontent{
+color:#7EC0EE;
+width:60%;
+margin:auto;
+}
+
+#headerboxcontent a{
+color:#7EC0EE;
+}
+
+#headerboxcontent h1{
+color:#7EC0EE;
+font-size:4.0em;
+margin-bottom:60px;
+}
+
+#headerboxcontent p{
+color:#7EC0EE;
+font-size:2.0em;
+}
+
+#bulletpoints {
+text-align:left;
+width:80%;
+margin: 35px 0px;
+margin-left:auto;
+margin-right:auto;
+}
+
+.navbar{
+margin:0px;
+padding:0px;
+}
+
+.redtext{
+color:red;}
+
+.spacetop{
+margin-top:30px;
+}
+
+.aligncenter{
+text-align:center;}
+
+#pricecontainer{
+margin:auto;
+width:80%;
+display:block;
+overflow: auto;
+}
+
+.bigbutton {
+font-size: 16px;
+padding: 1em 2em;
+text-transform: uppercase;
+}
+
+.button-orange{
+background-color:#f2683a;
+color:#FFF;
+}
+
+.buttonbox{
+margin-top:80px;
+}
+
+.buttonbox a{
+margin-top:40px;
+color:#FFF!important;
+}
+
+.projectbutton{
+font-size: 16px;
+padding: 1em 2em;
+text-transform: uppercase;
+border-radius:5px;
+}
+
+
+.loginform{
+margin-left:auto;
+margin-right:auto;
+max-width:300px;
+}
+
+.inputfield{
+width:100%;
+height:43px;
+padding-left:10%;
+padding-right:2.5%;
+padding-top:7px;
+padding-bottom:7px;
+}
+
+.btn-big{
+width:100%;
+background-color:#f2683a;
+color:#FFF;
+}
+
+.buttoncontainer{
+text-align:right;
+}
+
+.checkbox{
+width:49%;
+display:block;
+float:left;
+margin-top:0px;
+margin-bottom:20px;
+}
+
+.forgotpw{
+width:49%;
+display:block;
+float:right;
+margin-top:0px;
+margin-bottom:20px;
+text-align:right;
+}
+
+.footer{
+width:100%;
+text-align:center;
+height:60px;
+margin-top:30px;
+}
+
+.footer table{
+margin-top:30px;
+text-align:center;
+margin-left:auto;
+margin-right:auto;
+}
+
+.dashboard{
+width:60%;
+margin:auto;
+padding-top:40px;}
+
+#dashtable{
+width:100%;
+margin:auto;
+}
+
+.projpage{
+width:60%;
+margin:auto;
+padding-top:40px;}
+
+.suggestbox{
+width=80%;
+border: 3px orange solid;
+padding:7px; 15px;
+font-size:1.5em;
+text-align:center;
+margin-top:40px;
+margin-bottom:40px;
+}
+
+.makesuggestion{
+width:60%;
+margin:auto;
+padding-top:40px;
+text-align:center;
+}
+
+.tablecontainer{
+width:30%;
+margin:auto;
+}
+
+.projectdetails{
+width:30%;
+margin:auto;
+margin-bottom:40px;
+margin-top:40px;
+}
+
+
+.allprojpage{
+width:50%;
+margin:auto;
+margin-top:40px;
+}
+
+#priceleft{
+width:45%;
+float:left;
+display:block;
+margin-right:3%;
+text-align:left;
+margin-top:20px;
+}
+#priceright{
+width:45%;
+float:right;
+display:block;
+margin-left:3%;
+text-align:left;
+margin-top:20px;
+
+}
+
+#pricepage{
+width:60%;
+margin:auto;
+margin-top:30px;
+text-align:center;
+}
+
+#pricepage li{
+font-size:1.5em;
+}
+
+#pricepage h1{
+margin-bottom:30px;
+}
+
+.price{
+text-align:center;
+font-size:2.0em;}
+
+#priceright h3{
+text-align:center;
+}
+
+#priceleft h3{
+text-align:center;
+}
+
+.contentwrapper{
+width:60%;
+margin:auto;
+margin-top:40px;
+}
+
+.alert{
+margin-top:15px;
+margin-left:10px;
+margin-right:10px;
+}
+
+.projectform{
+margin-left:auto;
+margin-right:auto;
+max-width:600px;
+}
+
+.projectform h2{
+margin-top:40px;
+margin-bottom:35px;
+text-align:center;
+}
+
+.projectform p{
+font-size:1.2em;
+}
+
+.pinputfield{
+width:100%;
+height:43px;
+padding-left:1%;
+padding-right:1%;
+padding-top:2px;
+padding-bottom:2px;
+font-size:2.0em;
+}
+
+.tarea{
+height:200px;
+width:100%;
+padding-left:1%;
+padding-right:1%;
+padding-top:2px;
+padding-bottom:2px;
+font-size:2.0em;
+}
+
+.dropdownmenu{
+width:35%;
+font-size:1.4em;
+}
+
+.flash{
+color:red;
+}
+
+.defaultfooter{
+height:40px;
+}
+
+p{
+font-size:1.2em;
+}
+
+
+
+
+
+
+
+@media all and (max-width: 899px) {
+    #headerboxoutside {padding-top: 60px;padding-bottom: 135px;}
+    #headerboxcontent {width:100%;}
+    #pricepage {width:90%;margin-bottom:80px;}
+    #pricecontainer {width:100%;}
+    #priceleft{float:none;width:100%;margin-left:none;margin-right:none;}
+    #priceright{float:none;width:100%;margin-left:none;margin-right:none;}
+}
+
+@media (max-width: 1299px) and (min-width: 900px) {
+    #headerboxoutside{padding-top: 90px;padding-bottom: 160px;}
+    #pricepage {width:80%;margin-bottom:80px;}
+    #pricecontainer {width:100%;}
+}
+
+@media (min-width: 1300px) {
+    #headerboxoutside{padding-top: 120px;padding-bottom: 190px;}
+}

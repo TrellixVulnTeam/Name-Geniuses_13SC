@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="allprojpage">
+    {% if allprojects %}
+    <h2>All Currently Open Postings</h2>
+    <table class="table table-bordered table-striped">
+        <tr><td>Project name</td><td>Posted on:</td><td>Current number of entries</td><td></td></tr>            
+        {% for p in allprojects %}
+        <tr><td>{{ p.title }}</td>
+            <td>{{ p.timestamp }}</td>
+            <td>{{ p.number_of_entries }}</td>
+            <td><a href="{{ url_for('projectpage', pnumber=p.id)}}">View project details</a></td>
+        </tr>    
+        {% endfor %}
+    </table>
+    {% else %}
+    <h2>No Projects Currently Open, Check Back Soon!</h2>
+    <h3>You can also browse these closed projects:</h3>
+    <table class="table table-bordered table-striped">
+        <tr><td>Project name</td><td>Posted on:</td><td></td></tr>            
+        {% for p in closedprojects %}
+        <tr><td>{{ p.title }}</td>
+            <td>{{ p.timestamp }}</td>
+            <td><a href="{{ url_for('projectpage', pnumber=p.id)}}">View project details</a></td>
+        </tr>    
+        {% endfor %}
+    </table>
+
+    {% endif %}
+
+</div>
+
+{% endblock %}

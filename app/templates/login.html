@@ -1,0 +1,40 @@
+<!-- extend base layout -->
+{% extends "base.html" %}
+
+{% block content %}
+    <div> 
+        <div class="loginform">
+         {% include 'flash.html' %}
+        <h2>Login:</h2>
+            {% if current_user.is_authenticated %}
+                 <h2>Hi, {{ current_user.nickname }}!</h2>
+                 <p><a href="{{ url_for('logout') }}">Logout</a></p>
+            {% else %}
+              <a href="{{ url_for('register') }}">Click here to register if you haven't yet!</a> 
+                <form method="post" role="form">
+                            {{ form.hidden_tag() }}
+                    {% for message in form.email.errors %}
+                      <div class="flash">{{ message }}</div>
+                    {% endfor %}
+                     
+                    {% for message in form.password.errors %}
+                      <div class="flash">{{ message }}</div>
+                    {% endfor %}
+                  <div class="form-group">
+                    {{ form.email(placeholder="Email Address",class="inputfield")}}
+                  </div>
+                  <div class="form-group">
+                    {{ form.password(placeholder="Password",class="inputfield") }}
+                  </div>
+                  <div class="checkbox">
+                    <label><input type="checkbox"> Remember me</label>
+                  </div>
+                  <div class="forgotpw">
+                    <a href="{{ url_for('forgotpassword') }}">Forgot password?</a>
+                  </div>
+                  <button type="submit" class="btn btn-default btn-big bigbutton">Submit</button>
+                </form>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,39 @@
+<!-- extend base layout -->
+{% extends "base.html" %}
+
+{% block content %}
+
+{% include 'flash.html' %}
+<div id="pricepage">
+<h1>Pricing</h1>
+
+<p>The whole purpose of this site is to take the hassle out of finding a great domain name, and the pricing is simple to reflect that.</p>
+
+<p>There are 2 potential packages to buy, both will be available once you create an account and post your first project:</p>
+
+    <div id="pricecontainer">
+        
+        <div id="priceleft">
+            <h3 style="color:#528EAD;font-size:2.5em;">Basic</h3>
+            <p class="price">$10</p>
+            <p><i>What you get:</i></p>
+            <ul><li>A live posting for 1 week</li>
+                <li>Up to 5 domain ideas (available for registration) from each user</li>
+                <li>An unlimited number of users can enter suggestions.<p>
+            </ul>
+        </div>
+        
+        <div id="priceright">
+            <h3 style="color:#5AB781;font-size:2.5em;">The Motivator</h3>
+            <p class="price">$20</p>
+            <p><i>What you get:</i></p>
+            <ul><li>Everything from the basic package</li>
+                <li>The extra payment goes to the winning user = extra incentive for users to spend more time on your domain name</li>
+            </ul>
+        </div>
+    
+    </div>
+    <div class="buttonbox spacetop"><a href="{{ url_for('register') }}" class="bigbutton button-orange">Register now</a></div>
+
+</div>
+{% endblock %}

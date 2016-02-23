@@ -1,0 +1,50 @@
+<!-- extend base layout -->
+{% extends "base.html" %}
+
+{% block content %}
+    {% include 'flash.html' %}
+  
+  <div class="makesuggestion"><h1>Submit up to 5 suggestions for:<a href="{{ url_for('projectpage', pnumber=pdata.id)}}">{{ pdata.title}}</a></h1> </div>
+    <p class="aligncenter">Important: Do NOT include "http://" in the address. Instead, just write the bare domain (e.g.: "www.example.com" or "example.com")</p>
+    <div class="projectdetails">
+        <h4>Business/project description:</h4> <p>{{pdata.description}}</p>
+        {% if pdata.anything_else %}<h4>Additional notes:</h4> <p>{{pdata.anything_else}}</p>{% endif %}
+    </div>
+
+    {% if badnames %}
+        <div class="badname aligncenter redtext">
+        {% for name in badnames %}
+        <p>{{name}} is either not a valid domain name, or not available for registration.</p>
+        {% endfor %}
+        <p>Once you've made the corrections, resubmit all your suggestions. If you're positive you've inputted a domain correctly, but it won't accept it, contact support@mail.com.</p>
+        </div>
+    {% endif %}
+    
+    <div class="tablecontainer">
+        <form method="post" role="form">
+                    {{ form.hidden_tag() }}
+          <div class="form-group">
+            <label for="suggest1">Suggestion #1:</label>
+            {{ form.Suggest1(class="inputfield")}}
+          </div>
+         <div class="form-group">
+            <label for="suggest2">Suggestion #2:</label>
+            {{ form.Suggest2(class="inputfield")}}
+          </div>
+         <div class="form-group">
+            <label for="suggest3">Suggestion #3:</label>
+            {{ form.Suggest3(class="inputfield")}}
+          </div>
+         <div class="form-group">
+            <label for="suggest4">Suggestion #4:</label>
+            {{ form.Suggest4(class="inputfield")}}
+          </div>
+         <div class="form-group">
+            <label for="suggest5">Suggestion #5:</label>
+            {{ form.Suggest5(class="inputfield")}}
+          </div>
+          <button type="submit" class="btn btn-default btn-big bigbutton">Submit my entries!</button>
+        </form>
+    </div>
+{% endblock %}
+

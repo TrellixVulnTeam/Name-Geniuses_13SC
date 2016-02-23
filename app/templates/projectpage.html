@@ -1,0 +1,38 @@
+<!-- extend base layout -->
+{% extends "base.html" %}
+
+{% block content %}
+<div class="projpage">
+   <div><h1>Title:  {{ pdata.title}} {% if winnerchosen %} - [Project Closed] {% endif %} </h1></div>
+   {% if winnerchosen %}<div><h2>Winning name: {{ pdata.winner }}</h2></div>{% endif %}
+   <div> <h4>Business description:</h4><p> {{pdata.description}}</p></div>
+   <div><h4>Additional notes: </h4>{{pdata.anything_else}}</div>
+         {% include 'flash.html' %}
+
+    {% if pdata.user_id != user.id %}
+    <div class="suggestbox"><a href="{{ url_for('suggest',pnumber=pdata.id) }}">Click here to suggest a name</a></div>
+    {% else %}
+    <div class="suggestions"><h2>Suggestions by our users</h2>
+        <table class="table table-bordered table-striped">
+        <tr><td>Entry</td><td>Date entered</td><td></td></tr>
+        {% for sug in suggestdata %}
+            {% if sug.Suggest1 %}
+                <tr><td>{{sug.Suggest1}}</td><td>{{sug.timestamp}}</td><td><a href="{{ url_for('pickwinner',pnumber=pdata.id, suggest=sug.id, suggnumber='1') }}">Pick as winner</a></td></tr>
+            {% endif %}
+            {% if sug.Suggest2 %}
+                <tr><td>{{sug.Suggest2}}</td><td>{{sug.timestamp}}</td><td><a href="{{ url_for('pickwinner',pnumber=pdata.id, suggest=sug.id, suggnumber='2') }}">Pick as winner</a></td></tr>
+            {% endif %}
+            {% if sug.Suggest3 %}
+                <tr><td>{{sug.Suggest3}}</td><td>{{sug.timestamp}}</td><td><a href="{{ url_for('pickwinner',pnumber=pdata.id, suggest=sug.id, suggnumber='3') }}">Pick as winner</a></td></tr>
+            {% endif %}
+            {% if sug.Suggest4 %}
+                <tr><td>{{sug.Suggest4}}</td><td>{{sug.timestamp}}</td><td><a href="{{ url_for('pickwinner',pnumber=pdata.id, suggest=sug.id, suggnumber='4') }}">Pick as winner</a></td></tr>
+            {% endif %}
+            {% if sug.Suggest5 %}
+                <tr><td>{{sug.Suggest5}}</td><td>{{sug.timestamp}}</td><td><a href="{{ url_for('pickwinner',pnumber=pdata.id, suggest=sug.id, suggnumber='5') }}">Pick as winner</a></td></tr>
+            {% endif %}
+        {% endfor %}
+        </table>
+    {% endif %}
+</div>      
+{% endblock %}

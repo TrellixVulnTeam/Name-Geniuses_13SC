@@ -1,0 +1,39 @@
+<!-- extend base layout -->
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="projectform"> 
+ {% include 'flash.html' %}
+        <h2>Share some details about your project to get started</h2>
+           
+        <form method="post" role="form">
+                    {{ form.hidden_tag() }}
+
+          <div class="form-group">
+            <p>1. Give your project a title (e.g. blog about cats):</p>
+            {{ form.title(class="pinputfield")}}
+            {% for message in form.title.errors %}
+              <div class="flash">Project title error: {{ message }}</div>
+            {% endfor %}
+          </div>
+
+          <div class="form-group">
+            <p>2. Describe your business or project in a few sentences (e.g. The blog will feature cutting edge cat training advice. It stands out from the competition because it's based on science):</p>
+            {{ form.description(class="tarea") }}
+            {% for message in form.description.errors %}
+              <div class="flash">Description error: {{ message }}</div>
+            {% endfor %}
+          </div>
+
+          <div class="form-group">
+            <p>3. Is there anything else that might influence the name? (e.g. certain words you might want included, type of customer to appeal to, length of domain, domain extension, etc.)</p>
+            {{ form.Anything_else(class="tarea")}}
+          </div>
+          <div class="form-group">
+            <p>Which package would you like to buy for this project? (Refer to <a href="{{ url_for('pricing') }}">the pricing page for details</a>)</p>
+            {{ form.project_type(class="dropdownmenu")}}
+          </div>
+          <button type="submit" class="btn btn-default btn-big bigbutton">Create my project!</button>
+        </form>
+    </div>
+{% endblock %}
