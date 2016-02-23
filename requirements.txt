@@ -19,6 +19,7 @@ Mako==1.0.3
 MarkupSafe==0.23
 passlib==1.6.5
 pbr==1.8.1
+psycopg2==2.6.1
 pycparser==2.14
 python-editor==0.5
 rauth==0.7.2
