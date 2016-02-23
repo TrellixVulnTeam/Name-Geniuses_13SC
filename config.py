@@ -13,18 +13,6 @@ else:
 SQLALCHEMY_MIGRATE_REPO = os.path.join(basedir, 'db_repository')
 SQLALCHEMY_RECORD_QUERIES = True
 
-OAUTH_CREDENTIALS = {
-    'facebook': {
-        'id': '1027820050615086',
-        'secret': 'f6ef9bb473fd20dabc2bfa897cf3b2f9'
-    },
-    'google': {
-            'id': '1025055206557-t3t0gb3ljfbtbhpp2k364c2egia06tht.apps.googleusercontent.com',
-            'secret':'_LIus0fWYyarUbQrH9oFu1H4'
-    }
- 
-}
-
 # mail server settings
 # email server
 MAIL_SERVER = 'smtp.googlemail.com'
