@@ -1,7 +1,6 @@
 import urllib.request
 import xml.etree.ElementTree as ET
 
-
 def checkDomain(domain):
 
     hdr = {'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.11 (KHTML, like Gecko) Chrome/23.0.1271.64 Safari/537.11',
@@ -15,7 +14,7 @@ def checkDomain(domain):
 
     if domain[0:3]=="www":
         domain=domain[4::]
-        site='https://www.namesilo.com/api/checkRegisterAvailability?version=1&type=xml&key=%s&domains=%s' % (key,domain)
+    site='https://www.namesilo.com/api/checkRegisterAvailability?version=1&type=xml&key=%s&domains=%s' % (key,domain)
     try:
         req = urllib.request.Request(site, headers=hdr)
         response = urllib.request.urlopen(req)
@@ -23,9 +22,9 @@ def checkDomain(domain):
         root = tree.getroot()
         avail=root[1][2]
         avail=avail.tag
-        if avail=="available":
-            return True
-        else:
-            return False
     except:
+        return False
+    if avail=="available":
+        return True
+    else:
         return False
