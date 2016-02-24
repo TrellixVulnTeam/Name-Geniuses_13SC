@@ -439,7 +439,7 @@ def payment(pid, ptype):
 
 @app.route('/pricing')
 def pricing():
-    return render_template('pricing.html')
+    return render_template('pricing.html', title="Pricing")
 
 
 @app.route('/logout')
