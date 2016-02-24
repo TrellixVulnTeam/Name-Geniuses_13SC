@@ -46,11 +46,19 @@ def dashboard():
     current_postings = Posting.query.filter_by(user_id=user.id).all()
     allpostings=Posting.query.all()
     current_suggestions=Suggestion.query.filter_by(suggester=user.id).all()
+    counter=0
+    for s in current_suggestions:
+        counter+=1
+    currentwins=user.wins
+    winnings=user.totalwinnings        
     return render_template('dashboard.html',
                            title='Dashboard',
                            user=user,
                            projects=current_postings,
                            suggestions=current_suggestions,
+                           count=counter,
+                           currentwins=currentwins,
+                           winnings=winnings,
                            allpostings=allpostings
                            )
 
