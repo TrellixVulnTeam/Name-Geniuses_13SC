@@ -25,8 +25,6 @@ MAIL_PASSWORD='Seal1951'
 # administrator list
 ADMINS = ['dalecudmore@gmail.com']
 
-# pagination
-POSTS_PER_PAGE = 3
 
 SQLALCHEMY_RECORD_QUERIES = True
 # slow database query threshold (in seconds)

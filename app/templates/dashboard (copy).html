@@ -29,6 +29,31 @@
     
         {% endif %}
         </div>
+    {% else %}
+        <table class="table table-bordered table-striped">
+        <tr><td>Number of entries:</td><td>{{count}}</td></tr>
+        <tr><td>Number of winning entries:</td><td>{{currentwins}}</td></tr>
+        <tr><td>Your earnings:</td><td>${{winnings}}</td></tr>
+        <tr><td>Your Paypal email:</td><td>{{ user.paypalemail }} (<a href="{{ url_for('editprofile')}}">Change</a>)</td></tr>
+        </table>
+        {% if suggestions %}
+        <h2>Detailed Breakdown</h2>
+        <table class="table table-bordered table-striped">
+            <tr><td>Project name</td><td>Winning Domain</td><td>Entry #1</td><td>Entry #2</td><td>Entry #3</td><td>Entry #4</td><td>Entry #5</td></tr>            
+            {% for s in suggestions %}
+            <tr><td>{% for p in allpostings %}
+                        {% if s.posting_id == p.id %}<a href="{{ url_for('projectpage', pnumber=p.id)}}">{{ p.title }}</a></td>
+                            {% if p.winner %}<td>{{ p.winner }}</td>
+                            {% else %}<td>Not Yet Chosen</td>
+                            {% endif %}
+                        {% endif %}
+                    {% endfor %}
+           
+            <td>{{s.Suggest1}}</td><td>{{s.Suggest2}}</td><td>{{s.Suggest3}}</td><td>{{s.Suggest4}}</td><td>{{s.Suggest5}}</td></tr>
+            
+            {% endfor %}
+        </table>
+        {% endif %}
 
     {% endif %}
 
