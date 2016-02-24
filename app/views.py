@@ -44,15 +44,11 @@ def index():
 def dashboard():
     user = g.user
     current_postings = Posting.query.filter_by(user_id=user.id).all()
-    allpostings=Posting.query.all()
-    current_suggestions=Suggestion.query.filter_by(suggester=user.id).all()
-    counter=0     
+    allpostings=Posting.query.all() 
     return render_template('dashboard.html',
                            title='Dashboard',
                            user=user,
                            projects=current_postings,
-                           suggestions=current_suggestions,
-                           count=counter,
                            allpostings=allpostings
                            )
 
