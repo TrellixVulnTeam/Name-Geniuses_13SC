@@ -3,20 +3,29 @@ import xml.etree.ElementTree as ET
 
 
 def checkDomain(domain):
-  #key='044424ec7338409a9a2819786a0bc148'
-  #99.231.108.123
-  if domain[0:3]=="www":
-    domain=domain[4::]
-  site='https://api.namecheap.com/xml.response?ApiUser=JTringer&ApiKey=044424ec7338409a9a2819786a0bc148&UserName=JTringer&Command=namecheap.domains.check&ClientIp=http://www.namegeniuses.com&DomainList=%s' % (domain)
 
-  try:
-    response = urllib.request.urlopen(site)
-    tree = ET.parse(response)
-    root = tree.getroot()
-    availdict=root[3][0].attrib
-    if availdict['Available'] == "true":
-        return True
-    else:
+    hdr = {'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.11 (KHTML, like Gecko) Chrome/23.0.1271.64 Safari/537.11',
+       'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+       'Accept-Charset': 'ISO-8859-1,utf-8;q=0.7,*;q=0.3',
+       'Accept-Encoding': 'none',
+       'Accept-Language': 'en-US,en;q=0.8',
+       'Connection': 'keep-alive'}
+    key='2d8db11d657074716eba64'
+
+
+    if domain[0:3]=="www":
+        domain=domain[4::]
+        site='https://www.namesilo.com/api/checkRegisterAvailability?version=1&type=xml&key=%s&domains=%s' % (key,domain)
+    try:
+        req = urllib.request.Request(site, headers=hdr)
+        response = urllib.request.urlopen(req)
+        tree = ET.parse(response)
+        root = tree.getroot()
+        avail=root[1][2]
+        avail=avail.tag
+        if avail=="available":
+            return True
+        else:
+            return False
+    except:
         return False
-  except:
-    return False
