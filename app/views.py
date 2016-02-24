@@ -41,9 +41,13 @@ def index():
 @app.route('/dashboard', methods=['GET', 'POST'])
 @login_required
 @check_confirmed
-def dashboard():     
+def dashboard():
+    user = g.user
+    current_postings = Posting.query.filter_by(user_id=user.id).all()     
     return render_template('dashboard.html',
-                           title='Dashboard'
+                           title='Dashboard',
+                           user=user,
+                           projects=current_postings
                            )
 
 @app.route('/login', methods=['GET', 'POST'])
