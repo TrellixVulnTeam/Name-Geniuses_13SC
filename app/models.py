@@ -80,7 +80,7 @@ class Suggestion(db.Model):
     Suggest3 = db.Column(db.String(140))
     Suggest4 = db.Column(db.String(140))
     Suggest5 = db.Column(db.String(140))
-    suggester=db.Column(db.String(140))
+    suggester=db.Column(db.Integer)
     timestamp = db.Column(db.DateTime)
     posting_id = db.Column(db.Integer, db.ForeignKey('posting.id'))
     winstatus=db.Column(db.Boolean, default=False) 
