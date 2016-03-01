@@ -150,7 +150,24 @@ width:100%;
 text-align:center;
 height:60px;
 margin-top:30px;
+border-top:1px solid #B7B4B4;
 }
+
+.howitworksoutside{
+width:100%;
+margin:auto;
+background-color:#ECF0F1;
+padding-top:60px;
+padding-bottom:60px;
+}
+
+.howitworks{
+width:60%;
+margin:auto;
+}
+
+.howitworks h2{
+margin-bottom:30px;}
 
 .footer table{
 margin-top:30px;
@@ -320,8 +337,13 @@ p{
 font-size:1.2em;
 }
 
+li{
+font-size: 1.2em;
+}
 
-
+.contentwrapper h2{
+margin-bottom:40px;
+}
 
 
 

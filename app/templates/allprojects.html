@@ -8,7 +8,7 @@
         <tr><td>Project name</td><td>Posted on:</td><td>Current number of entries</td><td></td></tr>            
         {% for p in allprojects %}
         <tr><td>{{ p.title }}</td>
-            <td>{{ p.timestamp }}</td>
+            <td>{{ p.timestamp_day }}</td>
             <td>{{ p.number_of_entries }}</td>
             <td><a href="{{ url_for('projectpage', pnumber=p.id)}}">View project details</a></td>
         </tr>    

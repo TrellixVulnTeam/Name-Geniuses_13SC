@@ -61,6 +61,7 @@ class Posting(db.Model):
     description = db.Column(db.String(140))
     anything_else = db.Column(db.String(140))
     timestamp = db.Column(db.DateTime)
+    timestamp_day = db.Column(db.Date)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     suggestions = db.relationship('Suggestion', backref='poster', lazy='dynamic')
     status=   db.Column(db.String(140), default="Pending",nullable=True) 
@@ -82,6 +83,7 @@ class Suggestion(db.Model):
     Suggest5 = db.Column(db.String(140))
     suggester=db.Column(db.Integer)
     timestamp = db.Column(db.DateTime)
+    timestamp_day = db.Column(db.Date)
     posting_id = db.Column(db.Integer, db.ForeignKey('posting.id'))
     winstatus=db.Column(db.Boolean, default=False) 
 

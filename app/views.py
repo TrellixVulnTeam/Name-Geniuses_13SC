@@ -202,7 +202,9 @@ def newproject():
             project_type="The Motivator"
         else:
             project_type="Basic"
-        project=Posting(title=title, anything_else=anyelse, description=description, creator=g.user, timestamp=datetime.utcnow(), project_type=project_type)
+        time=datetime.utcnow()
+        timeday=time.date()
+        project=Posting(title=title, anything_else=anyelse, description=description, creator=g.user, timestamp=time, timestamp_day=timeday, project_type=project_type)
         db.session.add(project)
         db.session.commit()
         return redirect(url_for('dashboard'))
@@ -266,9 +268,9 @@ def pickwinner(pnumber,suggest,suggnumber):
         winningsuggester=User.query.filter_by(id=winner.suggester).first()
         winningsuggester.wins+=1
         if project.project_type=="Basic":
-            winningsuggester.totalwinnings+=10*.8
+            winningsuggester.totalwinnings+=16
         else:
-            winningsuggester.totalwinnings+=20*.85
+            winningsuggester.totalwinnings+=46
         db.session.commit()
     return redirect(url_for('dashboard'))
 
@@ -343,7 +345,9 @@ def suggest(pnumber):
                 projectdata.number_of_entries+=fulllist
                 db.session.commit()
         except:
-            Suggestions=Suggestion(Suggest1=Suggest1, Suggest2=Suggest2,Suggest3=Suggest3,Suggest4=Suggest4,Suggest5=Suggest5, poster=projectdata, suggester=user.id, timestamp=datetime.utcnow())
+            time=datetime.utcnow()
+            timeday=time.date()
+            Suggestions=Suggestion(Suggest1=Suggest1, Suggest2=Suggest2,Suggest3=Suggest3,Suggest4=Suggest4,Suggest5=Suggest5, poster=projectdata, suggester=user.id, timestamp=time, timestamp_day=timeday)
             projectdata.number_of_entries+=count            
             db.session.add(Suggestions)
             db.session.commit()
@@ -356,6 +360,13 @@ def suggest(pnumber):
 
 @app.route('/becomesuggester', methods=['GET', 'POST'])
 def suggester():
+    if g.user is not None and g.user.is_authenticated:
+        return redirect(url_for('dashboard'))
+    return render_template('becomesuggester.html', 
+                           title='Become a suggester')
+
+@app.route('/registersuggester', methods=['GET', 'POST'])
+def registersuggester():
     if g.user is not None and g.user.is_authenticated:
         return redirect(url_for('dashboard'))
     form=LoginForm()
@@ -383,8 +394,8 @@ def suggester():
         else:
             flash("Username exists, but not with that password")
             return redirect(url_for('dashboard'))   
-    return render_template('becomesuggester.html', 
-                           title='Become a suggester',
+    return render_template('registersuggester.html', 
+                           title='Register as a suggester',
                            form=form)
 
 @app.route('/charge/<projectid>/<amount>', methods=['POST'])
@@ -430,11 +441,11 @@ def editprofile():
 def payment(pid, ptype):
     key=stripe_keys['publishable_key']
     if ptype=="Basic":
-        amount="10.00"
-        centsamount="1000"
-    else:
         amount="20.00"
         centsamount="2000"
+    else:
+        amount="50.00"
+        centsamount="5000"
     return render_template('payment.html', amount=amount, centsamount=centsamount,key=key, projectid=pid, title="Payment")
 
 @app.route('/pricing')

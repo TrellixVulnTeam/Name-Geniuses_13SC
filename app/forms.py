@@ -20,7 +20,7 @@ class PostForm(Form):
     title = StringField('title', validators=[DataRequired()])
     description = TextAreaField('description', validators=[DataRequired()])
     Anything_else = TextAreaField('Anything_else')
-    project_type=SelectField('Type of project', choices=[("Basic ($10)","Basic ($10)"),("The Motivator ($20)","The Motivator ($20)")])
+    project_type=SelectField('Type of project', choices=[("Basic ($20)","Basic ($20)"),("The Motivator ($50)","The Motivator ($50)")])
 
     
 class SuggestForm(Form):
