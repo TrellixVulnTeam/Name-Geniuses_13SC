@@ -171,7 +171,13 @@ def confirm_email(token):
         user.confirmed = True
         user.timestamp = datetime.utcnow()
         db.session.commit()
+        if user.jobposter==True:
+            html = render_template('welcome.html')
+            subject = "Welcome to Name Geniuses - Here's how to get started"
+            send_email(user.email, subject, html)   
+        
         flash('You have confirmed your account. Thanks!', 'success')
+        
     return redirect(url_for('index'))
 
 @app.route('/resend')
