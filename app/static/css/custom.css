@@ -149,7 +149,6 @@ text-align:right;
 width:100%;
 text-align:center;
 height:60px;
-margin-top:30px;
 border-top:1px solid #B7B4B4;
 }
 
@@ -170,10 +169,10 @@ margin:auto;
 margin-bottom:30px;}
 
 .footer table{
-margin-top:30px;
 text-align:center;
 margin-left:auto;
 margin-right:auto;
+line-height:60px;
 }
 
 .dashboard{
