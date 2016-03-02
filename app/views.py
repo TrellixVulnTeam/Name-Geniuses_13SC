@@ -175,6 +175,10 @@ def confirm_email(token):
             html = render_template('welcome.html')
             subject = "Welcome to Name Geniuses - Here's how to get started"
             send_email(user.email, subject, html)   
+        else:
+            html = render_template('welcomesugg.html')
+            subject = "Welcome to Name Geniuses - Here's how to get started"
+            send_email(user.email, subject, html)   
         
         flash('You have confirmed your account. Thanks!', 'success')
         
