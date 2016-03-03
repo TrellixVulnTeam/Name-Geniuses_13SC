@@ -33,6 +33,7 @@ def before_request():
         db.session.add(g.user)
         db.session.commit()    
     urlparts = urlparse(request.url)
+    flash(urlparts)
     if urlparts.netloc == 'namegeniuses.com':
         urlparts_list = list(urlparts)
         urlparts_list[1] = 'www.namegeniuses.com'
