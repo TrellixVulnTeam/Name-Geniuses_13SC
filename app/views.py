@@ -48,6 +48,7 @@ def before_request():
         urlparts_list[0] = 'https'
         urlparts=urlunparse(urlparts_list)
         change=True
+    change=False
     if change==True:
         return redirect(urlparts,code=301)
 
