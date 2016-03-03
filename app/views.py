@@ -33,9 +33,20 @@ def before_request():
         db.session.add(g.user)
         db.session.commit()    
     urlparts = urlparse(request.url)
+    change=False
     if urlparts.netloc == 'namegeniuses.com':
         urlparts_list = list(urlparts)
         urlparts_list[1] = 'www.namegeniuses.com'
+        change=True
+    if urlparts.scheme == 'http':
+        if urlparts_list:
+            urlparts_list[0] = 'https'
+            change=True
+        else:
+            urlparts_list = list(urlparts)
+            urlparts_list[0] = 'https'
+            change=True
+    if change==True:
         return redirect(urlunparse(urlparts_list), code=301)
 
 @app.route('/', methods=['GET', 'POST'])
