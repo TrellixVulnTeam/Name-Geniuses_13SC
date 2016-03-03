@@ -40,6 +40,7 @@ def before_request():
         flash('1')
         urlparts=urlunparse(urlparts_list)
     if urlparts.scheme == 'http':
+        urlparts_list = list(urlparts)
         flash('h')
         urlparts_list[0] = 'https'
         flash(urlparts_list)
