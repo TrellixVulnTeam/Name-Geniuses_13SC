@@ -46,12 +46,7 @@ def before_request():
             urlparts_list[0] = 'https'
             change=True
             flash('h1')
-        else:
-            urlparts_list = list(urlparts)
-            urlparts_list[0] = 'https'
-            flash('h2')
-            change=True
-    flash(change)
+
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
