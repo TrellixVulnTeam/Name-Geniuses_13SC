@@ -48,7 +48,8 @@ def before_request():
         urlparts_list[0] = 'https'
         urlparts=urlunparse(urlparts_list)
         change=True
-    flash(urlparts)
+    if change==True:
+        return redirect(urlparts,code=301)
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
