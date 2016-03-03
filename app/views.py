@@ -1,5 +1,5 @@
 from flask import render_template, flash, redirect,url_for, g, request
-from urllib.parse import urlparse
+from urllib.parse import urlparse,urlunparse
 from app import app,db,lm
 from .forms import LoginForm,ForgotForm, PostForm,SuggestForm,NewPasswordForm,EditForm
 from flask.ext.login import login_user, logout_user,\
@@ -36,9 +36,7 @@ def before_request():
     if urlparts.netloc == 'namegeniuses.com':
         urlparts_list = list(urlparts)
         urlparts_list[1] = 'www.namegeniuses.com'
-        return redirect(urlparse(urlparts_list), code=301)
-
-
+        return redirect(urlunparse(urlparts_list), code=301)
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
