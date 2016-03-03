@@ -33,20 +33,17 @@ def before_request():
         db.session.add(g.user)
         db.session.commit()    
     urlparts = urlparse(request.url)
-    change=False
     flash(urlparts)
     if urlparts.netloc == 'namegeniuses.com':
         urlparts_list = list(urlparts)
         urlparts_list[1] = 'www.namegeniuses.com'
         flash('1')
-        change=True
+        urlparts=urlunparse(urlparts_list)
     if urlparts.scheme == 'http':
         flash('h')
-        if urlparts_list:
-            urlparts_list[0] = 'https'
-            change=True
-            flash('h1')
-
+        urlparts_list[0] = 'https'
+        flash('h2')
+    flash(change)
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
