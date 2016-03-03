@@ -49,6 +49,7 @@ def before_request():
         urlparts=urlunparse(urlparts_list)
         change=True
     change=False
+    flash(urlparts)
     if change==True:
         return redirect(urlparts,code=301)
 
