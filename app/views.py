@@ -39,7 +39,10 @@ def before_request():
         urlparts_list[1] = 'www.namegeniuses.com'
         flash('1')
         urlparts=urlunparse(urlparts_list)
-
+    if urlparts.scheme == 'http':
+        flash('h')
+        urlparts_list[0] = 'https'
+        flash(urlparts_list)
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
