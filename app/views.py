@@ -43,9 +43,10 @@ def before_request():
         flash('1')
         urlparts=urlunparse(urlparts_list)
         change=True
-    if urlparts.scheme == 'http':
-        if change==True:
-            urlparts = urlparse(urlparts)
+    if change==False:
+        urlparts=urlunparse(urlparts_list)
+    if "https" not in urlparts:
+        urlparts = urlparse(urlparts)
         urlparts_list = list(urlparts)
         urlparts_list[0] = 'https'
         urlparts=urlunparse(urlparts_list)
