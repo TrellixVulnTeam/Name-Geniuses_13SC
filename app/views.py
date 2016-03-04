@@ -33,7 +33,8 @@ def before_request():
         db.session.add(g.user)
         db.session.commit()    
     urlparts = urlparse(request.url)
-    flash(urlparts, "1")
+    flash("1")    
+    flash(urlparts)
     change=False
     if urlparts.netloc == 'namegeniuses.com':
         urlparts_list = list(urlparts)
@@ -49,7 +50,8 @@ def before_request():
         urlparts=urlunparse(urlparts_list)
         change=True
     change=False
-    flash(urlparts, "2")
+    flash("2")
+    flash(urlparts)
     if change==True:
         return redirect(urlparts,code=301)
 
