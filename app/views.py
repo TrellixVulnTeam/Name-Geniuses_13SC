@@ -36,27 +36,11 @@ def before_request():
     flash(request.url)
     flash("1")    
     flash(urlparts)
-    change=False
     if urlparts.netloc == 'namegeniuses.com':
         urlparts_list = list(urlparts)
         urlparts_list[1] = 'www.namegeniuses.com'
         flash('1')
         urlparts=urlunparse(urlparts_list)
-        change=True
-    if change==False:
-        urlparts=urlunparse(urlparts_list)
-    if "https" not in urlparts:
-        urlparts = urlparse(urlparts)
-        urlparts_list = list(urlparts)
-        urlparts_list[0] = 'https'
-        urlparts=urlunparse(urlparts_list)
-        flash('3')
-        change=True
-    flash("2")
-    flash(change)
-    flash(urlparts)
-    change=False
-    if change==True:
         return redirect(urlparts,code=301)
 
 @app.route('/', methods=['GET', 'POST'])
