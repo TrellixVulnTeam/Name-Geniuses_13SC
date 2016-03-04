@@ -33,6 +33,7 @@ def before_request():
         db.session.add(g.user)
         db.session.commit()    
     urlparts = urlparse(request.url)
+    flash(request.url)
     flash("1")    
     flash(urlparts)
     change=False
