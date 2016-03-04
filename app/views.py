@@ -52,6 +52,7 @@ def before_request():
     flash("2")
     flash(change)
     flash(urlparts)
+    change=False
     if change==True:
         return redirect(urlparts,code=301)
 
