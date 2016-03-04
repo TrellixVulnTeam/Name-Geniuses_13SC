@@ -32,16 +32,7 @@ def before_request():
         g.user.last_seen = datetime.utcnow()
         db.session.add(g.user)
         db.session.commit()    
-    urlparts = urlparse(request.url)
-    flash(request.url)
-    flash("1")    
-    flash(urlparts)
-    if urlparts.scheme == 'http':
-        urlparts_list = list(urlparts)
-        urlparts_list[0] = 'https'
-        flash('1')
-        urlparts=urlunparse(urlparts_list)
-        return redirect(urlparts,code=301)
+
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
