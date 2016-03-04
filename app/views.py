@@ -49,7 +49,6 @@ def before_request():
         urlparts_list[0] = 'https'
         urlparts=urlunparse(urlparts_list)
         change=True
-    change=False
     flash("2")
     flash(urlparts)
     if change==True:
