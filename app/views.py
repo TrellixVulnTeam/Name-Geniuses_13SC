@@ -15,8 +15,8 @@ from .decorators import check_confirmed
 from .domain import checkDomain
 
 stripe_keys = {
-    'secret_key': 'sk_test_n8bhCzBDGLxqbPfCoz7HYeQl',
-    'publishable_key': 'pk_test_n00tOVxN8YpmQphYGRVclqLe'
+    'secret_key': 'sk_live_vVTxxx3PArGZ7MxEqjqqz9TK',
+    'publishable_key': 'pk_live_w3Bjm1SkNDm5Hl6BYiHgndBY'
 }
 
 stripe.api_key = stripe_keys['secret_key']
