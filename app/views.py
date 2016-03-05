@@ -282,7 +282,7 @@ def pickwinner(pnumber,suggest,suggnumber):
         if project.project_type=="Basic":
             winningsuggester.totalwinnings+=16
         else:
-            winningsuggester.totalwinnings+=46
+            winningsuggester.totalwinnings+=40
         db.session.commit()
     return redirect(url_for('dashboard'))
 
