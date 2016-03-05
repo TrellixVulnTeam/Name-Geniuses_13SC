@@ -57,9 +57,9 @@ class User(UserMixin, db.Model):
 class Posting(db.Model):
     __tablename__ = 'posting'   
     id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String(140))
-    description = db.Column(db.String(140))
-    anything_else = db.Column(db.String(140))
+    title = db.Column(db.String(300))
+    description = db.Column(db.String())
+    anything_else = db.Column(db.String())
     timestamp = db.Column(db.DateTime)
     timestamp_day = db.Column(db.Date)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))

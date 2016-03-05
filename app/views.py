@@ -181,7 +181,7 @@ def confirm_email(token):
             html = render_template('welcomesugg.html')
             subject = "Welcome to Name Geniuses - Here's how to get started"
             send_email(user.email, subject, html)   
-        
+            return redirect(url_for('dashboard'))  
         flash('You have confirmed your account. Thanks!', 'success')
         
     return redirect(url_for('index'))
