@@ -6,6 +6,7 @@
   
   <div class="makesuggestion"><h1>Submit up to 5 suggestions for:<a href="{{ url_for('projectpage', pnumber=pdata.id)}}">{{ pdata.title}}</a></h1> </div>
     <p class="aligncenter">Important: Do NOT include "http://" in the address. Instead, just write the bare domain (e.g.: "www.example.com" or "example.com")</p>
+    <p class="aligncenter">Please make sure your suggestions are in fact available for registration by checking with a site like <a href="https://www.namecheap.com/">NameCheap</a>. Thanks!</p>    
     <div class="projectdetails">
         <h4>Business/project description:</h4> <p>{{pdata.description}}</p>
         {% if pdata.anything_else %}<h4>Additional notes:</h4> <p>{{pdata.anything_else}}</p>{% endif %}
