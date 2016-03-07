@@ -21,9 +21,11 @@ def checkDomain(domain):
     try:
         req = urllib.request.Request(site, headers=hdr)
         response = urllib.request.urlopen(req)
+        print(site)
         tree = ET.parse(response)
         root = tree.getroot()
         avail=root[1][2]
+        print(avail)
         avail=avail.tag
     except:
         return False
