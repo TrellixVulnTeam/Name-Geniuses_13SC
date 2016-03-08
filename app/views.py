@@ -308,34 +308,34 @@ def suggest(pnumber):
         Suggest3 = form.Suggest3.data
         Suggest4 = form.Suggest4.data
         Suggest5 = form.Suggest5.data
-        #badnames=[]
+        badnames=[]
         count=0
         if Suggest1:        
             count+=1
-            #if not checkDomain(Suggest1):
-             #   badnames.append(Suggest1)
+            if not checkDomain(Suggest1):
+                badnames.append(Suggest1)
         if Suggest2: 
             count+=1            
-           # if not checkDomain(Suggest2):
-             #   badnames.append(Suggest2)
+            if not checkDomain(Suggest2):
+                badnames.append(Suggest2)
         if Suggest3:     
             count+=1
-            #if not checkDomain(Suggest3):
-             #   badnames.append(Suggest3)
+            if not checkDomain(Suggest3):
+                badnames.append(Suggest3)
         if Suggest4:     
             count+=1
-            #if not checkDomain(Suggest4):
-               # badnames.append(Suggest4)
+            if not checkDomain(Suggest4):
+                badnames.append(Suggest4)
         if Suggest5:     
             count+=1
-           # if not checkDomain(Suggest5):
-             #   badnames.append(Suggest5)
-       # if badnames:
-           # return render_template('suggestion.html',
-             #              form=form,
-               #            badnames=badnames,
-               #            pdata=projectdata,
-                 #          title="Make a suggestion")       
+            if not checkDomain(Suggest5):
+                badnames.append(Suggest5)
+        if badnames:
+            return render_template('suggestion.html',
+                           form=form,
+                           badnames=badnames,
+                           pdata=projectdata,
+                           title="Make a suggestion")       
         try:
             if prevsugg.Suggest1:
                 secondcount=0
