@@ -377,6 +377,7 @@ def suggester():
     return render_template('becomesuggester.html', 
                            title='Become a suggester')
 
+
 @app.route('/registersuggester', methods=['GET', 'POST'])
 def registersuggester():
     if g.user is not None and g.user.is_authenticated:

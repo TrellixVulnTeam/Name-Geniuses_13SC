@@ -17,22 +17,22 @@
         <p>While the suggesters should have confirmed that all suggestions are available for registration, please check yourself before choosing a winner. I'm currently finding a way to have this done automatically, sorry for the inconvenience.</p>
         <p>Problems? Contact me at Dale@namegeniuses.com, I'll get back to you a.s.a.p. and sort things out.</p>
         <table class="table table-bordered table-striped">
-        <tr><td>Entry</td><td>Date entered</td><td></td></tr>
+        <tr><td>Entry</td><td></td></tr>
         {% for sug in suggestdata %}
             {% if sug.Suggest1 %}
-                <tr><td>{{sug.Suggest1}}</td><td>{{sug.timestamp_day}}</td><td><a href="{{ url_for('pickwinner',pnumber=pdata.id, suggest=sug.id, suggnumber='1') }}">Pick as winner</a></td></tr>
+                <tr><td>{{sug.Suggest1}}</td><td><a href="{{ url_for('pickwinner',pnumber=pdata.id, suggest=sug.id, suggnumber='1') }}">Pick as winner</a></td></tr>
             {% endif %}
             {% if sug.Suggest2 %}
-                <tr><td>{{sug.Suggest2}}</td><td>{{sug.timestamp_day}}</td><td><a href="{{ url_for('pickwinner',pnumber=pdata.id, suggest=sug.id, suggnumber='2') }}">Pick as winner</a></td></tr>
+                <tr><td>{{sug.Suggest2}}</td><td><a href="{{ url_for('pickwinner',pnumber=pdata.id, suggest=sug.id, suggnumber='2') }}">Pick as winner</a></td></tr>
             {% endif %}
             {% if sug.Suggest3 %}
-                <tr><td>{{sug.Suggest3}}</td><td>{{sug.timestamp_day}}</td><td><a href="{{ url_for('pickwinner',pnumber=pdata.id, suggest=sug.id, suggnumber='3') }}">Pick as winner</a></td></tr>
+                <tr><td>{{sug.Suggest3}}</td><td><a href="{{ url_for('pickwinner',pnumber=pdata.id, suggest=sug.id, suggnumber='3') }}">Pick as winner</a></td></tr>
             {% endif %}
             {% if sug.Suggest4 %}
-                <tr><td>{{sug.Suggest4}}</td><td>{{sug.timestamp_day}}</td><td><a href="{{ url_for('pickwinner',pnumber=pdata.id, suggest=sug.id, suggnumber='4') }}">Pick as winner</a></td></tr>
+                <tr><td>{{sug.Suggest4}}</td><td><a href="{{ url_for('pickwinner',pnumber=pdata.id, suggest=sug.id, suggnumber='4') }}">Pick as winner</a></td></tr>
             {% endif %}
             {% if sug.Suggest5 %}
-                <tr><td>{{sug.Suggest5}}</td><td>{{sug.timestamp_day}}</td><td><a href="{{ url_for('pickwinner',pnumber=pdata.id, suggest=sug.id, suggnumber='5') }}">Pick as winner</a></td></tr>
+                <tr><td>{{sug.Suggest5}}</td><td><a href="{{ url_for('pickwinner',pnumber=pdata.id, suggest=sug.id, suggnumber='5') }}">Pick as winner</a></td></tr>
             {% endif %}
         {% endfor %}
         </table>

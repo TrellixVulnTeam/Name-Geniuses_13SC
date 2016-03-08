@@ -348,7 +348,14 @@ font-size: 1.2em;
 margin-bottom:40px;
 }
 
-
+.instruction{
+border: 2px solid #22A7F0;
+background: #C5EFF7;
+padding:8px;
+width:40%;
+text-align:left;
+margin:auto;
+}
 
 
 @media all and (max-width: 899px) {

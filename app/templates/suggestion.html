@@ -5,8 +5,11 @@
     {% include 'flash.html' %}
   
   <div class="makesuggestion"><h1>Submit up to 5 suggestions for:<a href="{{ url_for('projectpage', pnumber=pdata.id)}}">{{ pdata.title}}</a></h1> </div>
-    <p class="aligncenter">Important: Do NOT include "http://" in the address. Instead, just write the bare domain (e.g.: "www.example.com" or "example.com")</p>
-    <p class="aligncenter">Please make sure your suggestions are in fact available for registration by checking with a site like <a href="https://www.namecheap.com/">NameCheap</a>. Thanks!</p>    
+    <div class="instruction">
+        <p>1. Do NOT include "http://" in the address. Instead, just write the bare domain (e.g.: "www.example.com" or "example.com")</p>
+        <p>2. Please make sure your suggestions are in fact available for registration by checking with a site like <a href="https://www.namecheap.com/">NameCheap</a>. Thanks!</p>
+        <p>3. Please <a href="https://www.youtube.com/embed/Ch5KWsfakO8">watch the tutorial video</a> before submitting any suggestions</p>    
+    </div>    
     <div class="projectdetails">
         <h4>Business/project description:</h4> <p>{{pdata.description}}</p>
         {% if pdata.anything_else %}<h4>Additional notes:</h4> <p>{{pdata.anything_else}}</p>{% endif %}
