@@ -15,9 +15,13 @@ from .decorators import check_confirmed
 from .domain import checkDomain
 
 stripe_keys = {
-    'secret_key': 'sk_live_vVTxxx3PArGZ7MxEqjqqz9TK',
-    'publishable_key': 'pk_live_w3Bjm1SkNDm5Hl6BYiHgndBY'
+    'secret_key': 'sk_test_n8bhCzBDGLxqbPfCoz7HYeQl',
+    'publishable_key': 'pk_test_n00tOVxN8YpmQphYGRVclqLe'
 }
+#stripe_keys = {
+#    'secret_key': 'sk_live_vVTxxx3PArGZ7MxEqjqqz9TK',
+#    'publishable_key': 'pk_live_w3Bjm1SkNDm5Hl6BYiHgndBY'
+#}
 
 stripe.api_key = stripe_keys['secret_key']
 
@@ -52,7 +56,8 @@ def dashboard():
     for s in current_suggestions:
         counter+=1
     currentwins=user.wins
-    winnings=user.totalwinnings        
+    winnings=user.totalwinnings
+    notifications=user.emailnotes        
     return render_template('dashboard.html',
                            title='Dashboard',
                            user=user,
@@ -61,7 +66,8 @@ def dashboard():
                            count=counter,
                            currentwins=currentwins,
                            winnings=winnings,
-                           allpostings=allpostings
+                           allpostings=allpostings,
+                           notifications=notifications
                            )
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -218,7 +224,7 @@ def newproject():
         timeday=time.date()
         project=Posting(title=title, anything_else=anyelse, description=description, creator=g.user, timestamp=time, timestamp_day=timeday, project_type=project_type)
         db.session.add(project)
-        db.session.commit()
+        db.session.commit()     
         return redirect(url_for('dashboard'))
     return render_template('newproject.html', 
                            title='Create a new project',
@@ -433,6 +439,12 @@ def charge(projectid,amount):
     Projectrecord.status="Live"
     db.session.commit()    
     flash("Payment successful, your project is live!")
+    usernotes=User.query.filter_by(emailnotes=True).all()
+    for u in usernotes:
+        projecturl= url_for('projectpage', pnumber=Projectrecord.id, _external=True)
+        html = render_template('projectnote.html', project=Projectrecord,projecturl=projecturl)
+        subject = "A new project needs your domain name suggestions"
+        send_email(to=u.email, subject=subject, template=html)   
     return redirect(url_for('dashboard'))  
 
 @app.route('/editprofile', methods=['GET', 'POST'])
@@ -470,6 +482,23 @@ def pricing():
 def logout():
     logout_user()
     return redirect(url_for('index'))
+    
+    
+@app.route('/turnoffnotifications')
+@login_required
+def turnoffnotifications():
+    user=g.user
+    user.emailnotes=False
+    db.session.commit()  
+    return redirect(url_for('dashboard'))
+
+@app.route('/turnonnotifications')
+@login_required
+def turnonnotifications():
+    user=g.user
+    user.emailnotes=True
+    db.session.commit()  
+    return redirect(url_for('dashboard'))
 
 @app.route('/unconfirmed')
 @login_required

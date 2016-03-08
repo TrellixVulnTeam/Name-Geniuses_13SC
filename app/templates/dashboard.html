@@ -34,10 +34,12 @@
         </div>
     {% else %}
         <table class="table table-bordered table-striped">
-        <tr><td>Number of entries:</td><td>{{count}}</td></tr>
-        <tr><td>Number of winning entries:</td><td>{{currentwins}}</td></tr>
-        <tr><td>Your earnings:</td><td>${{winnings}}</td></tr>
-        <tr><td>Your Paypal email:</td><td>{{ user.paypalemail }} (<a href="{{ url_for('editprofile')}}">Change</a>)</td></tr>
+            <tr><td>Number of entries:</td><td>{{count}}</td></tr>
+            <tr><td>Number of winning entries:</td><td>{{currentwins}}</td></tr>
+            <tr><td>Your earnings:</td><td>${{winnings}}</td></tr>
+            <tr><td>Your Paypal email:</td><td>{{ user.paypalemail }} (<a href="{{ url_for('editprofile')}}">Change</a>)</td></tr>
+            <tr><td>Email notifications are:</td><td>{% if notifications %}On (<a href="{{ url_for('turnoffnotifications')}}">Turn off notifications</a>)</td></tr>
+                                                     {% else %}Off (<a href="{{ url_for('turnonnotifications')}}">Turn on notifications</a>)</td></tr>{% endif %}
         </table>
         {% if suggestions %}
         <h2>Detailed Breakdown</h2>
