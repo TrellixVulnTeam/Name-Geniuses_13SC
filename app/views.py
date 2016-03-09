@@ -1,5 +1,4 @@
 from flask import render_template, flash, redirect,url_for, g, request
-from urllib.parse import urlparse,urlunparse
 from app import app,db,lm
 from .forms import LoginForm,ForgotForm, PostForm,SuggestForm,NewPasswordForm,EditForm
 from flask.ext.login import login_user, logout_user,\
@@ -14,14 +13,18 @@ from .emails import send_email
 from .decorators import check_confirmed
 from .domain import checkDomain
 
-stripe_keys = {
-    'secret_key': 'sk_test_n8bhCzBDGLxqbPfCoz7HYeQl',
-    'publishable_key': 'pk_test_n00tOVxN8YpmQphYGRVclqLe'
-}
-#stripe_keys = {
-#    'secret_key': 'sk_live_vVTxxx3PArGZ7MxEqjqqz9TK',
-#    'publishable_key': 'pk_live_w3Bjm1SkNDm5Hl6BYiHgndBY'
-#}
+stripetesting=True
+
+if stripetesting:
+    stripe_keys = {
+        'secret_key': 'sk_test_n8bhCzBDGLxqbPfCoz7HYeQl',
+        'publishable_key': 'pk_test_n00tOVxN8YpmQphYGRVclqLe'
+    }
+else:
+    stripe_keys = {
+    'secret_key': 'sk_live_vVTxxx3PArGZ7MxEqjqqz9TK',
+    'publishable_key': 'pk_live_w3Bjm1SkNDm5Hl6BYiHgndBY'
+    }
 
 stripe.api_key = stripe_keys['secret_key']
 
@@ -214,15 +217,11 @@ def newproject():
         title = form.title.data
         description= form.description.data
         anyelse=form.Anything_else.data
-        typestring=form.project_type.data
-        project_type=typestring.split(" ")
-        if project_type[0]=="The":
-            project_type="The Motivator"
-        else:
-            project_type="Basic"
+        project_type=form.project_type.data
+        project_prize=float(form.project_prize.data)
         time=datetime.utcnow()
         timeday=time.date()
-        project=Posting(title=title, anything_else=anyelse, description=description, creator=g.user, timestamp=time, timestamp_day=timeday, project_type=project_type)
+        project=Posting(title=title, anything_else=anyelse, description=description, creator=g.user, timestamp=time, timestamp_day=timeday, project_type=project_type, project_prize=project_prize)
         db.session.add(project)
         db.session.commit()     
         return redirect(url_for('dashboard'))
@@ -285,10 +284,7 @@ def pickwinner(pnumber,suggest,suggnumber):
         #add the win to the suggester
         winningsuggester=User.query.filter_by(id=winner.suggester).first()
         winningsuggester.wins+=1
-        if project.project_type=="Basic":
-            winningsuggester.totalwinnings+=16
-        else:
-            winningsuggester.totalwinnings+=40
+        winningsuggester.totalwinnings+=project.project_prize*0.8
         db.session.commit()
     return redirect(url_for('dashboard'))
 
@@ -465,12 +461,9 @@ def editprofile():
 @app.route('/payment/<ptype>/<pid>', methods=['GET', 'POST'])
 def payment(pid, ptype):
     key=stripe_keys['publishable_key']
-    if ptype=="Basic":
-        amount="20.00"
-        centsamount="2000"
-    else:
-        amount="50.00"
-        centsamount="5000"
+    project=Posting.query.filter_by(id=pid).first()    
+    amount=project.project_prize
+    centsamount=amount*100
     return render_template('payment.html', amount=amount, centsamount=centsamount,key=key, projectid=pid, title="Payment")
 
 @app.route('/pricing')

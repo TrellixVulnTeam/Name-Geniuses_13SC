@@ -11,7 +11,7 @@
         {% if projects %}
             <h3>Your projects:</h3>
             <table class="table table-bordered table-striped">
-                <tr><td>Project Title</td><td>Status</td><td>Number of entries</td><td></td></tr>
+                <tr><td>Project Title</td><td>Status</td><td>Number of projects entered in:</td><td></td></tr>
             {% for p in projects %}
                 <tr><td><a href="{{ url_for('projectpage',pnumber=p.id) }}"><div>{{p.title}}</div></a></td><td>{{ p.status }}</td><td>{{ p.number_of_entries }}</td>
                     {% if p.status == "Pending" %}

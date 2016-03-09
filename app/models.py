@@ -67,7 +67,8 @@ class Posting(db.Model):
     suggestions = db.relationship('Suggestion', backref='poster', lazy='dynamic')
     status=   db.Column(db.String(140), default="Pending",nullable=True) 
     winner= db.Column(db.String(140), nullable=True) 
-    project_type = db.Column(db.String(140))  
+    project_type = db.Column(db.String(140)) 
+    project_prize=db.Column(db.Float)
     number_of_entries=db.Column(db.Integer, default=0)
     
     

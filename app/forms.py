@@ -1,6 +1,6 @@
 from flask.ext.wtf import Form
-from wtforms import StringField, PasswordField, TextAreaField, SelectField
-from wtforms.validators import DataRequired,Length,Optional
+from wtforms import StringField, PasswordField, TextAreaField, SelectField,IntegerField
+from wtforms.validators import DataRequired,Length,Optional, NumberRange
 
 
 class LoginForm(Form):
@@ -20,7 +20,8 @@ class PostForm(Form):
     title = StringField('title', validators=[DataRequired()])
     description = TextAreaField('description', validators=[DataRequired()])
     Anything_else = TextAreaField('Anything_else')
-    project_type=SelectField('Type of project', choices=[("Basic ($20)","Basic ($20)"),("The Motivator ($50)","The Motivator ($50)")])
+    project_type=SelectField('Type of project', choices=[("Essential","Essential"),("Extra","Extra")])
+    project_prize=IntegerField('project prize', validators=[NumberRange(min=20)])
 
     
 class SuggestForm(Form):

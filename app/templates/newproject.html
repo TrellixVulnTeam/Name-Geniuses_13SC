@@ -33,6 +33,13 @@
             <p>Which package would you like to buy for this project? (Refer to <a href="{{ url_for('pricing') }}">the pricing page for details</a>)</p>
             {{ form.project_type(class="dropdownmenu")}}
           </div>
+          <div class="form-group">
+            <p>How much would you like to pay? (Minimum 20 for "essential" package, 80 for "extra")</p>
+            {{ form.project_prize(class="pinputfield")}}
+            {% for message in form.project_prize.errors %}
+              <div class="flash">Error: {{ message }}</div>
+            {% endfor %}
+          </div>
           <button type="submit" class="btn btn-default btn-big bigbutton">Create my project!</button>
         </form>
     </div>

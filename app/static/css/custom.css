@@ -70,7 +70,7 @@ text-align:center;}
 
 #pricecontainer{
 margin:auto;
-width:80%;
+width:100%;
 display:block;
 overflow: auto;
 }
@@ -263,9 +263,9 @@ font-size:1.5em;
 margin-bottom:30px;
 }
 
-.price{
+.price {
 text-align:center;
-font-size:2.0em;}
+font-size:1.7em;}
 
 #priceright h3{
 text-align:center;
@@ -358,8 +358,12 @@ margin:auto;
 margin-top:30px;
 }
 
+#pricepoints{
+text-align:left;
+margin:auto;
+}
 
-@media all and (max-width: 899px) {
+@media all and (max-width: 930px) {
     #headerboxoutside {padding-top: 60px;padding-bottom: 135px;}
     #headerboxcontent {width:100%;}
     #pricepage {width:90%;margin-bottom:80px;}
