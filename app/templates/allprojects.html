@@ -5,10 +5,10 @@
     {% if allprojects %}
     <h2>All Currently Open Postings</h2>
     <table class="table table-bordered table-striped">
-        <tr><td>Project name</td><td>Project type</td><td>Posted on:</td><td>Current number of entries</td><td></td></tr>            
+        <tr><td>Project name</td><td>Winner gets ($):</td><td>Posted on:</td><td>Current number of entries</td><td></td></tr>            
         {% for p in allprojects %}
         <tr><td>{{ p.title }}</td>
-            <td>{{ p.project_type }}</td>
+            <td>{% if p.project_type == "Essential" %} {{ ( p.project_prize *0.8) }} {% else %} {{(( p.project_prize -40)*0.8)}} {% endif %}</td>
             <td>{{ p.timestamp_day }}</td>
             <td>{{ p.number_of_entries }}</td>
             <td><a href="{{ url_for('projectpage', pnumber=p.id)}}">View project details</a></td>

@@ -13,7 +13,7 @@ from .emails import send_email
 from .decorators import check_confirmed
 from .domain import checkDomain
 
-stripetesting=True
+stripetesting=False
 
 if stripetesting:
     stripe_keys = {
@@ -284,7 +284,10 @@ def pickwinner(pnumber,suggest,suggnumber):
         #add the win to the suggester
         winningsuggester=User.query.filter_by(id=winner.suggester).first()
         winningsuggester.wins+=1
-        winningsuggester.totalwinnings+=project.project_prize*0.8
+        if project.type== "Essential":
+            winningsuggester.totalwinnings+=project.project_prize*0.8
+        else:
+            winningsuggester.totalwinnings+=(project.project_prize-40)*0.8            
         db.session.commit()
     return redirect(url_for('dashboard'))
 
