@@ -1,0 +1,32 @@
+<!-- extend base layout -->
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="contactform">
+    <h2 class="aligncenter">Contact</h2>
+         {% include 'flash.html' %}
+        <form method="post" role="form">
+                    {{ form.hidden_tag() }}
+          <div class="form-group">
+            <label for="suggest1">Name:</label>
+            {{ form.name(class="pinputfield")}}
+                    {% for message in form.name.errors %}
+                      <div class="flash">{{ message }}</div>
+                    {% endfor %}
+          </div>
+         <div class="form-group">
+            <label for="suggest2">Email address:</label>
+            {{ form.email(class="pinputfield")}}
+                    {% for message in form.email.errors %}
+                      <div class="flash">{{ message }}</div>
+                    {% endfor %}
+          </div>
+         <div class="form-group">
+            <label for="suggest3">What's on your mind?</label>
+            {{ form.message(class="tarea")}}
+          </div>
+          <button type="submit" class="btn btn-default btn-big bigbutton">Submit</button>
+        </form>
+    </div>
+
+{% endblock %}

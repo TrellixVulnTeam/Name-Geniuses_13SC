@@ -1,12 +1,12 @@
 from flask import render_template, flash, redirect,url_for, g, request
 from app import app,db,lm
-from .forms import LoginForm,ForgotForm, PostForm,SuggestForm,NewPasswordForm,EditForm
+from .forms import LoginForm,ForgotForm, PostForm,SuggestForm,NewPasswordForm,EditForm,ContactForm
 from flask.ext.login import login_user, logout_user,\
     current_user, login_required
 from datetime import datetime
 from .models import User, Posting, Suggestion
 from flask.ext.sqlalchemy import get_debug_queries
-from config import DATABASE_QUERY_TIMEOUT
+from config import DATABASE_QUERY_TIMEOUT, ADMINS
 import stripe
 from .token import generate_confirmation_token, confirm_token
 from .emails import send_email
@@ -473,6 +473,17 @@ def payment(pid, ptype):
 def pricing():
     return render_template('pricing.html', title="Pricing")
 
+@app.route('/contact', methods=['GET', 'POST'])
+def contact():
+    form=ContactForm()
+    if form.validate_on_submit():
+        email = form.email.data
+        name= form.name.data
+        message=form.message.data
+        html=render_template('contactmessage.html', name=name, email=email, message=message)
+        send_email(to=ADMINS[0], subject="Name Geniuses Contact", template=html)   
+        flash("Your message has been sent! I'll get back to you as soon as I can.")
+    return render_template('contact.html', title="Contact", form=form)
 
 @app.route('/logout')
 def logout():

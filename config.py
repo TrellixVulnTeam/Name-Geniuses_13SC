@@ -23,7 +23,7 @@ MAIL_USERNAME = 'dale@namegeniuses.com'
 MAIL_PASSWORD='wa6mxNknt8qt'
 
 # administrator list
-ADMINS = ['dalecudmore@gmail.com']
+ADMINS = ['dale@namegeniuses.com']
 
 
 SQLALCHEMY_RECORD_QUERIES = True

@@ -1,6 +1,6 @@
 from flask.ext.wtf import Form
 from wtforms import StringField, PasswordField, TextAreaField, SelectField,IntegerField
-from wtforms.validators import DataRequired,Length,Optional, NumberRange
+from wtforms.validators import DataRequired,Optional, NumberRange
 
 
 class LoginForm(Form):
@@ -30,3 +30,8 @@ class SuggestForm(Form):
     Suggest3 = StringField('Suggest3', validators=[Optional()])
     Suggest4 = StringField('Suggest4', validators=[Optional()])
     Suggest5 = StringField('Suggest5', validators=[Optional()])
+
+class ContactForm(Form):
+    name = StringField('name', validators=[DataRequired()])
+    email = StringField('email', validators=[DataRequired()])
+    message = TextAreaField('message')

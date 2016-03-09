@@ -1,3 +1,5 @@
+
+
 .container-fluid {
 padding:0px;
 }
@@ -102,6 +104,11 @@ text-transform: uppercase;
 border-radius:5px;
 }
 
+.contactform{
+width:60%;
+margin:auto;
+margin-top:50px;
+}
 
 .loginform{
 margin-left:auto;
