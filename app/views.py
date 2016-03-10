@@ -485,6 +485,13 @@ def contact():
         flash("Your message has been sent! I'll get back to you as soon as I can.")
     return render_template('contact.html', title="Contact", form=form)
 
+#landing pages
+@app.route('/businessnamegenerator')
+def busgeneratorlp():
+    return render_template('busgeneratorlp.html', title="business name generators suck")
+
+
+#functions
 @app.route('/logout')
 def logout():
     logout_user()

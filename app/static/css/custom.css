@@ -55,6 +55,14 @@ margin-left:auto;
 margin-right:auto;
 }
 
+#bulletpointslp {
+text-align:left;
+width:80%;
+margin: 15px 0px;
+margin-left:auto;
+margin-right:auto;
+}
+
 .navbar{
 margin:0px;
 padding:0px;
@@ -69,6 +77,17 @@ margin-top:30px;
 
 .aligncenter{
 text-align:center;}
+
+.alignleft{
+text-align:left;}
+
+.alignright{
+text-align:right;}
+
+.extraspace{
+margin-top:50px;
+margin-bottom:20px;
+}
 
 #pricecontainer{
 margin:auto;
@@ -400,6 +419,13 @@ margin-top:30px;
 text-align:left;
 margin:auto;
 }
+
+
+.landingpagetitle{
+color:#064A79!important;
+}
+
+img {max-width:100%;}
 
 @media (max-width: 500px){
     .buttonbox { width:100%;}
