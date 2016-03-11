@@ -501,7 +501,7 @@ def busgeneratorlp():
 @app.route('/namemybusiness')
 def namemybusiness():
     return render_template('namemybusinesslp.html', 
-                           title="Mane my business",
+                           title="Name my business",
                            livechat=True)
 
 #functions
