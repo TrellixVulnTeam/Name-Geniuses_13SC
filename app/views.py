@@ -9,7 +9,7 @@ from flask.ext.sqlalchemy import get_debug_queries
 from config import DATABASE_QUERY_TIMEOUT, ADMINS
 import stripe
 from .token import generate_confirmation_token, confirm_token
-from .emails import send_email
+from .emails import send_email, newemailsignup
 from .decorators import check_confirmed
 from .domain import checkDomain
 
@@ -157,6 +157,7 @@ def register():
             send_email(user.email, subject, html)                        
             
             login_user(user, True)
+            newemailsignup(email=email)
             return redirect(url_for('unconfirmed'))            
         if user.is_correct_password(pw):
             login_user(user)
