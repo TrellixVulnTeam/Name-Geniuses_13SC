@@ -498,6 +498,11 @@ def busgeneratorlp():
                            title="business name generators suck",
                            livechat=True)
 
+@app.route('/namemybusiness')
+def namemybusiness():
+    return render_template('namemybusinesslp.html', 
+                           title="Mane my business",
+                           livechat=True)
 
 #functions
 @app.route('/logout')

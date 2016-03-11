@@ -1,0 +1,47 @@
+<!-- extend base layout -->
+{% extends "base.html" %}
+
+{% block content %}
+
+    {% include 'flash.html' %}
+    <div id="headerboxoutside">
+        <div id="headerboxcontent" >
+            <h1>Get a creative business name you love - <i>quickly</i> (and pay what you want)</h1>
+            <div id="bulletpoints">
+            <p>1. Provide a few details about your project</p>
+            <p>2. Wait for our users to submit their <strong>best</strong> business name suggestions (with available domains)</p>
+            <p>3. Pick a winner any time you'd like (Only the winner gets paid, which ensures that users only suggest their best names)</p>
+            </div>
+            <div class="buttonbox"><a href="{{ url_for('register') }}" class="bigbutton button-orange">Tell us about your project now</a></div>
+        </div>
+    </div>
+    <div class="howitworksoutside">
+        <div class="howitworks">
+            <h2 class="aligncenter">How it works</h2>
+            <p>Here's a short video showing you how simple it is:</p>
+            <div>
+            <div style="width: 100%; height: 0px; position: relative; padding-bottom: 56.206%;"><iframe src="https://streamable.com/e/2oc2?muted=1&amp;logo=0" frameborder="0" allowfullscreen webkitallowfullscreen mozallowfullscreen scrolling="no" style="width: 100%; height: 100%; position: absolute;"></iframe></div>
+            </div>
+        </div>
+                    <div class="buttonbox aligncenter"><a href="{{ url_for('register') }}" class="bigbutton button-orange">Tell us about your project now</a></div>
+
+    </div>
+    <div class="faqoutside">
+        <div class="faqinside">
+            <h2 class="aligncenter">Frequently Asked Questions</h2>
+            <div class="faqleft">
+            <h3>How many name suggestions will I get?</h3>
+            <p>Even if you go with the minimum amount ($20), you'll get hundreds of suggestions. But the higher price you choose to pay, the more time our users will be able to spend coming up with the best names possible. Refer to <a href="{{ url_for('pricing') }}">the pricing page</a> for more details.</p>
+            <h3>What if I don't like any of the business names?</h3>
+            <p>This is a tricky one for us to handle. Some people will post a project, register one of the suggestions and then try to get a refund. That being said, if you're truly not happy (which will be rare with hundreds of human-generated suggestions), and can explain why, I'll refund you your payment.</p>
+            </div>
+            <div class="faqright">
+            <h3>How soon will I get my business name?</h3>
+            <p>As soon as you pay for your posting, it goes live on <a href="{{ url_for('postings') }}">the open postings board</a>. From there, the suggestions from our users will start coming in, and you can wait as long (or short) as you'd like to pick a winner.</p>
+            <h3>Who are your name suggesters?</h3>
+            <p>Right now, they're just people who enjoy coming up with creative business names and trying to earn a fair amount for their work. In the future, all name suggesters will have to go through a basic name certification course, which will increase the quality of our suggestions even further.</p>            
+            </div>
+        </div>
+
+    </div>
+{% endblock %}
