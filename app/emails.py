@@ -3,6 +3,7 @@ from app import mail, app
 from threading import Thread
 from .decorators import async
 from flask import render_template
+from time import sleep
 
 @async
 def send_async_email(app, msg):

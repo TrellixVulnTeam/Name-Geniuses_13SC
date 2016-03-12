@@ -445,7 +445,7 @@ def charge(projectid,amount):
         projecturl= url_for('projectpage', pnumber=Projectrecord.id, _external=True)
         html = render_template('projectnote.html', project=Projectrecord,projecturl=projecturl)
         subject = "A new project needs your domain name suggestions"
-        send_email(to=u.email, subject=subject, template=html)   
+        send_email(to=u.email, subject=subject, template=html)
     return redirect(url_for('dashboard'))  
 
 @app.route('/editprofile', methods=['GET', 'POST'])
