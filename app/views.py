@@ -45,8 +45,7 @@ def before_request():
 def index():
     return render_template('index.html',
                            title='Home',
-                           defaultfooter=True,
-                           livechat=True)
+                           defaultfooter=True)
                            
 @app.route('/dashboard', methods=['GET', 'POST'])
 @login_required
@@ -474,8 +473,7 @@ def payment(pid, ptype):
 @app.route('/pricing')
 def pricing():
     return render_template('pricing.html', 
-                           title="Pricing",
-                           livechat=True)
+                           title="Pricing")
 
 @app.route('/contact', methods=['GET', 'POST'])
 def contact():
@@ -495,14 +493,12 @@ def contact():
 @app.route('/businessnamegenerator')
 def busgeneratorlp():
     return render_template('busgeneratorlp.html', 
-                           title="business name generators suck",
-                           livechat=True)
+                           title="business name generators suck")
 
 @app.route('/namemybusiness')
 def namemybusiness():
     return render_template('namemybusinesslp.html', 
-                           title="Name my business",
-                           livechat=True)
+                           title="Name my business")
 
 #functions
 @app.route('/logout')
