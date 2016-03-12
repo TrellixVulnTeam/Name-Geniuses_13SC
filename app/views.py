@@ -489,8 +489,7 @@ def contact():
         flash("Your message has been sent! I'll get back to you as soon as I can.")
     return render_template('contact.html', 
                            title="Contact", 
-                           form=form,
-                           livechat=True)
+                           form=form)
 
 #landing pages
 @app.route('/businessnamegenerator')
