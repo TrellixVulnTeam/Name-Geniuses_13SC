@@ -484,8 +484,8 @@ def contact():
                            form=form)
 
 @app.route('/adminemails', methods=['GET', 'POST'])
-@check_admin
 @login_required
+@check_admin
 def adminemails():
     form=AdminEmailForm()
     if form.validate_on_submit():
