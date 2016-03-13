@@ -35,3 +35,7 @@ class ContactForm(Form):
     name = StringField('name', validators=[DataRequired()])
     email = StringField('email', validators=[DataRequired()])
     message = TextAreaField('message')
+    
+class AdminEmailForm(Form):
+    subject = StringField('subject', validators=[DataRequired()])
+    message = TextAreaField('message')

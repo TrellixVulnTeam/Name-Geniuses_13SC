@@ -1,0 +1,22 @@
+<!-- extend base layout -->
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="contactform">
+    <h2 class="aligncenter">Admin email panel</h2>
+         {% include 'flash.html' %}
+        <form method="post" role="form">
+                    {{ form.hidden_tag() }}
+         <div class="form-group">
+            <label for="suggest2">Subject:</label>
+            {{ form.subject(class="pinputfield")}}
+          </div>
+         <div class="form-group">
+            <label for="suggest3">Message</label>
+            {{ form.message(class="tarea")}}
+          </div>
+          <button type="submit" class="btn btn-default btn-big bigbutton">Submit</button>
+        </form>
+    </div>
+
+{% endblock %}

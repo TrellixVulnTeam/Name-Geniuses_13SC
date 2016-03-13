@@ -1,6 +1,6 @@
 from flask import render_template, flash, redirect,url_for, g, request
 from app import app,db,lm
-from .forms import LoginForm,ForgotForm, PostForm,SuggestForm,NewPasswordForm,EditForm,ContactForm
+from .forms import LoginForm,ForgotForm, PostForm,SuggestForm,NewPasswordForm,EditForm,ContactForm,AdminEmailForm
 from flask.ext.login import login_user, logout_user,\
     current_user, login_required
 from datetime import datetime
@@ -9,7 +9,7 @@ from flask.ext.sqlalchemy import get_debug_queries
 from config import DATABASE_QUERY_TIMEOUT, ADMINS
 import stripe
 from .token import generate_confirmation_token, confirm_token
-from .emails import send_email, newemailsignup
+from .emails import send_email, newemailsignup,sendbulk
 from .decorators import check_confirmed
 from .domain import checkDomain
 
@@ -439,12 +439,6 @@ def charge(projectid,amount):
     Projectrecord.status="Live"
     db.session.commit()    
     flash("Payment successful, your project is live!")
-    usernotes=User.query.filter_by(emailnotes=True).all()
-    for u in usernotes:
-        projecturl= url_for('projectpage', pnumber=Projectrecord.id, _external=True)
-        html = render_template('projectnote.html', project=Projectrecord,projecturl=projecturl)
-        subject = "A new project needs your domain name suggestions"
-        send_email(to=u.email, subject=subject, template=html)
     return redirect(url_for('dashboard'))  
 
 @app.route('/editprofile', methods=['GET', 'POST'])
@@ -487,6 +481,23 @@ def contact():
         flash("Your message has been sent! I'll get back to you as soon as I can.")
     return render_template('contact.html', 
                            title="Contact", 
+                           form=form)
+
+@login_required
+@app.route('/adminemails', methods=['GET', 'POST'])
+def adminemails():
+    form=AdminEmailForm()
+    if form.validate_on_submit():
+        subject = form.subject.data
+        message=form.message.data
+        lister=User.query.filter_by(suggester=True).filter_by(emailnotes=True).all()
+        sendbulk(message=message, subject=subject, users=lister)
+        #subject = form.subject.data
+        #message=form.message.data
+        #lister=User.query.filter_by(suggester=True).filter_by(emailnotes=True).all()
+        #sendbulk(message=message, subject=subject, users=lister)
+    return render_template('adminemails.html', 
+                           title="Admin email panel",
                            form=form)
 
 #landing pages
