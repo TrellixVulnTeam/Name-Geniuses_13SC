@@ -18,6 +18,8 @@ class User(UserMixin, db.Model):
     totalwinnings=db.Column(db.Float, default=0)
     emailnotes=db.Column(db.Boolean, default=True)
     postings = db.relationship('Posting', backref='creator', lazy='dynamic')
+    admin=db.Column(db.Boolean, default=False)
+
     
     @hybrid_property
     def password(self):
