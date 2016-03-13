@@ -1,7 +1,7 @@
 from threading import Thread
 from functools import wraps
 
-from flask import flash, redirect, url_for
+from flask import redirect, url_for
 from flask.ext.login import current_user
 
 
@@ -20,4 +20,11 @@ def async(f):
         thr.start()
     return wrapper
     
-    
+def check_admin(func):
+    @wraps(func)
+    def decorated_function(*args, **kwargs):
+        if current_user.admin is False:
+            return redirect(url_for('dashboard'))
+        return func(*args, **kwargs)
+
+    return decorated_function

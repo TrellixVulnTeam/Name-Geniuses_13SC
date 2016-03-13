@@ -10,7 +10,7 @@ from config import DATABASE_QUERY_TIMEOUT, ADMINS
 import stripe
 from .token import generate_confirmation_token, confirm_token
 from .emails import send_email, newemailsignup,sendbulk
-from .decorators import check_confirmed
+from .decorators import check_confirmed, check_admin
 from .domain import checkDomain
 
 stripetesting=False
@@ -484,6 +484,7 @@ def contact():
                            form=form)
 
 @login_required
+@check_admin
 @app.route('/adminemails', methods=['GET', 'POST'])
 def adminemails():
     form=AdminEmailForm()
