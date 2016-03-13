@@ -23,8 +23,7 @@ def async(f):
 def check_admin(func):
     @wraps(func)
     def decorated_function(*args, **kwargs):
-        if current_user.admin is False:
-            return redirect(url_for('dashboard'))
-        return func(*args, **kwargs)
-
+        if current_user.admin is True:
+            return func(*args, **kwargs)
+        return redirect(url_for('dashboard'))
     return decorated_function
