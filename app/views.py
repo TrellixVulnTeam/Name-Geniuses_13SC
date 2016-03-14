@@ -45,7 +45,8 @@ def before_request():
 def index():
     return render_template('index.html',
                            title='Home',
-                           defaultfooter=True)
+                           defaultfooter=True,
+                           heatmap=True)
                            
 @app.route('/dashboard', methods=['GET', 'POST'])
 @login_required
@@ -510,7 +511,8 @@ def busgeneratorlp():
 @app.route('/namemybusiness')
 def namemybusiness():
     return render_template('namemybusinesslp.html', 
-                           title="Name my business")
+                           title="Name my business",
+                           heatmap=True)
 
 #functions
 @app.route('/logout')
