@@ -182,7 +182,7 @@ margin-top:40px;
 .howitworksoutside{
 width:100%;
 margin:auto;
-background-color:#ECF0F1;
+background-color:#E2F3FE;
 padding-top:60px;
 padding-bottom:60px;
 }
@@ -193,7 +193,8 @@ margin:auto;
 }
 
 .howitworks h2{
-margin-bottom:30px;}
+margin-bottom:30px;
+font-size:2.5em;}
 
 .faqoutside{
 width:100%;
