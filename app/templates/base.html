@@ -26,11 +26,12 @@
     </script>
 
     {% if heatmap %}
-        <!-- User Heat Tag -->
         <script type="text/javascript">
-        (function(add, cla){window['UserHeatTag']=cla;window[cla]=window[cla]||function(){(window[cla].q=window[cla].q||[]).push(arguments)},window[cla].l=1*new Date();var ul=document.createElement('script');var tag = document.getElementsByTagName('script')[0];ul.async=1;ul.src=add;tag.parentNode.insertBefore(ul,tag);})('//uh.nakanohito.jp/uhj2/uh.js', '_uhtracker');_uhtracker({id:'uhkGKFCSCy'});
+        setTimeout(function(){var a=document.createElement("script");
+        var b=document.getElementsByTagName("script")[0];
+        a.src=document.location.protocol+"//script.crazyegg.com/pages/scripts/0047/5590.js?"+Math.floor(new Date().getTime()/3600000);
+        a.async=true;a.type="text/javascript";b.parentNode.insertBefore(a,b)}, 1);
         </script>
-        <!-- End User Heat Tag -->
     {% endif %}
   </head>
   <body>
