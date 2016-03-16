@@ -2,39 +2,57 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <div> 
-        <div class="loginform">
+    <div class="projectform"> 
          {% include 'flash.html' %}
-        <h2>Register</h2>
-            {% if current_user.is_authenticated %}
-                 <h2>Hi, {{ current_user.nickname }}!</h2>
-                 <p><a href="{{ url_for('logout') }}">Logout</a></p>
-            {% else %}
+        <h2>Share some details about your project to get started</h2>
            
-                <form method="post" role="form">
-                            {{ form.hidden_tag() }}
-                    {% for message in form.email.errors %}
-                      <div class="flash">{{ message }}</div>
-                    {% endfor %}
-                     
-                    {% for message in form.password.errors %}
-                      <div class="flash">{{ message }}</div>
-                    {% endfor %}
-                  <div class="form-group">
-                    {{ form.email(placeholder="Email Address",class="inputfield")}}
-                  </div>
-                  <div class="form-group">
-                    {{ form.password(placeholder="Password",class="inputfield") }}
-                  </div>
-                  <div class="checkbox">
-                    <label><input type="checkbox"> Remember me</label>
-                  </div>
-                  <div class="forgotpw">
-                    <a href="">Forgot password?</a>
-                  </div>
-                  <button type="submit" class="btn btn-default btn-big bigbutton">Register</button>
-                </form>
-            {% endif %}
-        </div>
+        <form method="post" role="form">
+        {{ form.hidden_tag() }}
+          <div class="form-group">
+            {{ form.email(placeholder="Email Address",class="inputfield")}}
+            {% for message in form.email.errors %}
+              <div class="flash">{{ message }}</div>
+            {% endfor %}
+          </div>
+          <div class="form-group">
+            {{ form.password(placeholder="Password",class="inputfield") }}
+            {% for message in form.password.errors %}
+              <div class="flash">{{ message }}</div>
+            {% endfor %}
+          </div>
+          <div class="form-group">
+            <p>1. Give your project a title (e.g. blog about cats):</p>
+            {{ form.title(class="pinputfield")}}
+            {% for message in form.title.errors %}
+              <div class="flash">Project title error: {{ message }}</div>
+            {% endfor %}
+          </div>
+
+          <div class="form-group">
+            <p>2. Describe your business or project in a few sentences (e.g. The blog will feature cutting edge cat training advice. It stands out from the competition because it's based on science):</p>
+            {{ form.description(class="tarea") }}
+            {% for message in form.description.errors %}
+              <div class="flash">Description error: {{ message }}</div>
+            {% endfor %}
+          </div>
+
+          <div class="form-group">
+            <p>3. Is there anything else that might influence the name? (e.g. certain words you might want included, type of customer to appeal to, length of domain, domain extension, etc.)</p>
+            {{ form.Anything_else(class="tarea")}}
+          </div>
+          <div class="form-group">
+            <p>Which package would you like to buy for this project? (Refer to <a href="{{ url_for('pricing') }}">the pricing page for details</a>)</p>
+            {{ form.project_type(class="dropdownmenu")}}
+          </div>
+          <div class="form-group">
+            <p>How much would you like to pay? (Minimum 20 for "essential" package, 80 for "extra")</p>
+            {{ form.project_prize(class="pinputfield")}}
+            {% for message in form.project_prize.errors %}
+              <div class="flash">Error: {{ message }}</div>
+            {% endfor %}
+          </div>
+          <button type="submit" class="btn btn-default btn-big bigbutton">Create my project!</button>
+        </form>
     </div>
+
 {% endblock %}

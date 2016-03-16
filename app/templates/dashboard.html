@@ -11,11 +11,11 @@
         {% if projects %}
             <h3>Your projects:</h3>
             <table class="table table-bordered table-striped">
-                <tr><td>Project Title</td><td>Status</td><td>Number of projects entered in:</td><td></td></tr>
+                <tr><td>Project Title</td><td>Status</td><td>Number of entries:</td><td></td></tr>
             {% for p in projects %}
                 <tr><td><a href="{{ url_for('projectpage',pnumber=p.id) }}"><div>{{p.title}}</div></a></td><td>{{ p.status }}</td><td>{{ p.number_of_entries }}</td>
                     {% if p.status == "Pending" %}
-                        <td><a href="{{ url_for('payment',pid=p.id, ptype=p.project_type) }}">Pay to make project go live</a></td>
+                        <td class="aligncenter"><strong><a class="paylink" href="{{ url_for('payment',pid=p.id, ptype=p.project_type) }}">Pay to make project go live</a></strong></td>
                     {% elif p.status== "Closed" %}
                         <td>Winning domain: {{ p.winner }} </td>
                     {% else %}

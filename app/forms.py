@@ -39,3 +39,12 @@ class ContactForm(Form):
 class AdminEmailForm(Form):
     subject = StringField('subject', validators=[DataRequired()])
     message = TextAreaField('message')
+    
+class RegHybridForm(Form):
+    email = StringField('email', validators=[DataRequired()])
+    password = PasswordField('password', validators=[DataRequired()])
+    title = StringField('title', validators=[DataRequired()])
+    description = TextAreaField('description', validators=[DataRequired()])
+    Anything_else = TextAreaField('Anything_else')
+    project_type=SelectField('Type of project', choices=[("Essential","Essential"),("Extra","Extra")])
+    project_prize=IntegerField('project prize', validators=[NumberRange(min=20)])    

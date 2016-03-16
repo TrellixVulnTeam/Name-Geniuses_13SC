@@ -1,6 +1,7 @@
 from flask import render_template, flash, redirect,url_for, g, request
 from app import app,db,lm
-from .forms import LoginForm,ForgotForm, PostForm,SuggestForm,NewPasswordForm,EditForm,ContactForm,AdminEmailForm
+from .forms import LoginForm,ForgotForm, PostForm,SuggestForm,NewPasswordForm,\
+    EditForm,ContactForm,AdminEmailForm,RegHybridForm
 from flask.ext.login import login_user, logout_user,\
     current_user, login_required
 from datetime import datetime
@@ -94,7 +95,8 @@ def login():
             return redirect(url_for('login'))                        
     return render_template('login.html', 
                            title='Sign In',
-                           form=form)
+                           form=form,
+                           heatmap=True)
                            
 @app.route('/forgotpassword', methods=['GET', 'POST'])
 def forgotpassword():
@@ -140,14 +142,25 @@ def newpassword(token):
 def register():
     if g.user is not None and g.user.is_authenticated:
         return redirect(url_for('dashboard'))
-    form=LoginForm()
+    form=RegHybridForm()
     if form.validate_on_submit():
         email = form.email.data
         pw= form.password.data
         user=User.query.filter_by(email=email).first()
+        title = form.title.data
+        description= form.description.data
+        anyelse=form.Anything_else.data
+        project_type=form.project_type.data
+        project_prize=float(form.project_prize.data)
+        time=datetime.utcnow()
+        timeday=time.date()
+        
         if user is None:
             user=User(email=email,password=pw,jobposter=True,paypalemail=email)
             db.session.add(user)
+            db.session.commit()
+            project=Posting(title=title, anything_else=anyelse, description=description, creator=user, timestamp=time, timestamp_day=timeday, project_type=project_type, project_prize=project_prize)
+            db.session.add(project)
             db.session.commit()
             
             token = generate_confirmation_token(user.email)
@@ -158,9 +171,13 @@ def register():
             
             login_user(user, True)
             newemailsignup(email=email)
+            flash('Your project has been created!')
             return redirect(url_for('unconfirmed'))            
         if user.is_correct_password(pw):
             login_user(user)
+            project=Posting(title=title, anything_else=anyelse, description=description, creator=user, timestamp=time, timestamp_day=timeday, project_type=project_type, project_prize=project_prize)
+            db.session.add(project)
+            db.session.commit()
             return redirect(url_for('dashboard'))        
         else:
             flash("Username exists, but not with that password")
@@ -195,7 +212,7 @@ def confirm_email(token):
             return redirect(url_for('dashboard'))  
         flash('You have confirmed your account. Thanks!', 'success')
         
-    return redirect(url_for('index'))
+    return redirect(url_for('dashboard'))
 
 @app.route('/resend')
 @login_required
