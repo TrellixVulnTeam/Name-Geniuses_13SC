@@ -4,10 +4,14 @@ from flask.ext.login import LoginManager
 from flask.ext.mail import Mail
 from flask.ext.bcrypt import Bcrypt
 from flask_migrate import Migrate
-
-
+import sys
+import logging
 
 app = Flask(__name__)
+
+
+app.logger.addHandler(logging.StreamHandler(sys.stdout))
+app.logger.setLevel(logging.ERROR)
 
 app.config.from_object('config')
 mail = Mail(app)
