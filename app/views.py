@@ -95,8 +95,7 @@ def login():
             return redirect(url_for('login'))                        
     return render_template('login.html', 
                            title='Sign In',
-                           form=form,
-                           heatmap=True)
+                           form=form)
                            
 @app.route('/forgotpassword', methods=['GET', 'POST'])
 def forgotpassword():
@@ -185,7 +184,8 @@ def register():
 
     return render_template('register.html', 
                            title='Register',
-                           form=form)
+                           form=form,
+                           heatmap=True)
 
 @app.route('/confirm/<token>')
 @login_required
