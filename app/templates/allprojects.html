@@ -15,9 +15,9 @@
         </tr>    
         {% endfor %}
     </table>
-    {% else %}
-    <h2>No Projects Currently Open, Check Back Soon!</h2>
-    <h3>You can also browse these closed projects:</h3>
+    {% endif %}
+    <h2>Closed projects</h2>
+    <h3>You can also browse these older projects where a winner has been chosen:</h3>
     <table class="table table-bordered table-striped">
         <tr><td>Project name</td><td>Posted on:</td><td></td></tr>            
         {% for p in closedprojects %}
@@ -28,7 +28,7 @@
         {% endfor %}
     </table>
 
-    {% endif %}
+
 
 </div>
 
