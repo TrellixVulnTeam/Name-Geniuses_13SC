@@ -303,7 +303,7 @@ def pickwinner(pnumber,suggest,suggnumber):
         #add the win to the suggester
         winningsuggester=User.query.filter_by(id=winner.suggester).first()
         winningsuggester.wins+=1
-        if project.type== "Essential":
+        if project.project_type== "Essential":
             winningsuggester.totalwinnings+=project.project_prize*0.8
         else:
             winningsuggester.totalwinnings+=(project.project_prize-40)*0.8            
