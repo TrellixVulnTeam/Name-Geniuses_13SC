@@ -6,10 +6,13 @@
     {% include 'flash.html' %}
     <div id="headerboxoutside">
         <div id="headerboxcontent" >
-            <h1>Get the <i>perfect</i> name for your business</h1>
-            <h2>You don't need to spend hours of your time and effort trying to find a great, available domain name, our users will do it for you. </h2>
-            <h2>You'll get hundreds of creative business name ideas from our users, then you choose the best. </h2>
-            <div class="buttonbox"><a href="{{ url_for('register') }}" class="bigbutton button-orange">Do it - Name My Business</a></div>
+            <div><h1>We'll help you find the <i>perfect</i> name for your business</h1>
+            <h2>Tell us about your business idea, then you'll get 50+ creative business name ideas from our users - <i>you choose the best.</i></h2>
+            <h2>If you don't find a name that you're happy with, we'll gladly refund your payment.</h2></div>
+            <div class="bigbuttonbox">
+                <div class="buttonbox"><a href="{{ url_for('register') }}" class="bigbutton button-orange button-left"><strong>Post your project</strong></a></div>
+                <div class="buttonbox"><a href="{{ url_for('pricing') }}" class="bigbutton button-blue button-right"><strong>Pricing</strong></a></div>
+            </div>
         </div>
     </div>
     <div class="howitworksoutside">
