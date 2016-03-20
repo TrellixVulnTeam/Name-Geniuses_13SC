@@ -6,7 +6,7 @@
  {% include 'flash.html' %}
     <h1 style="text-align:center;">Dashboard</h1> 
    {% if user.jobposter %}        
-        <div class="buttoncontainer"><a href="{{ url_for('newproject') }}" class="button-orange button-right projectbutton">Create a new project</a></div>
+        <div class="projectbuttoncontainer alignright"><a href="{{ url_for('newproject') }}" class="button-orange projectbutton">Create a new project</a></div>
         <div id="dashtable">
         {% if projects %}
             <h3>Your projects:</h3>

@@ -106,6 +106,9 @@ text-transform: uppercase;
 background-color:#f2683a;
 color:#FFF;
 }
+.projectbuttoncontainer{
+display:block;
+}
 
 .button-left{
 display:block;
