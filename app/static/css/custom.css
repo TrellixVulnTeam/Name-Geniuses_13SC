@@ -210,10 +210,7 @@ padding-top:60px;
 padding-bottom:60px;
 }
 
-.howitworks{
-width:60%;
-margin:auto;
-}
+
 
 .howitworks h2{
 margin-bottom:30px;
@@ -468,6 +465,7 @@ img {max-width:100%;}
     .faqleft{float:none;width:100%;margin-left:none;margin-right:none;}
     .button-left{width:90%; float:none;margin:auto;}
     .button-right{width:90%; float:none;margin:auto;}
+    .howitworks{width:90%;margin:auto;}
 }
 
 @media (max-width: 740px) and (min-width: 501px) {
@@ -483,6 +481,7 @@ img {max-width:100%;}
     .buttonbox{margin-top:20px;margin:auto;}
     .button-left{width:80%; float:none;margin:auto;}
     .button-right{width:80%; float:none;margin:auto;}
+    .howitworks{width:80%;margin:auto;}
 }
 
 
@@ -497,6 +496,7 @@ img {max-width:100%;}
     .faqright{float:none;width:100%;margin-left:none;margin-right:none;}
     .faqleft{float:none;width:100%;margin-left:none;margin-right:none;}
     .buttonbox{margin-top:20px;}
+    .howitworks{width:70%;margin:auto;}
 }
 
 @media (max-width: 1299px) and (min-width: 900px) {
@@ -505,10 +505,11 @@ img {max-width:100%;}
     #pricecontainer {width:100%;}
     #headerboxcontent{width:80%;}
     .faqinside{width:85%;}
+    .howitworks{width:60%;margin:auto;}
 }
 
 @media (min-width: 1300px) {
     #headerboxoutside{padding-top: 120px;padding-bottom: 160px;}
-
+    .howitworks{width:60%;margin:auto;}
 
 }
