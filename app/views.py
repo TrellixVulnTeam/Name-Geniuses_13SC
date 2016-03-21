@@ -12,7 +12,7 @@ import stripe
 from .token import generate_confirmation_token, confirm_token
 from .emails import send_email, newemailsignup,sendbulk
 from .decorators import check_confirmed, check_admin
-from .domain import checkDomain
+from .domain import checkDomain, subscribe
 
 stripetesting=False
 
@@ -28,6 +28,8 @@ else:
     }
 
 stripe.api_key = stripe_keys['secret_key']
+
+
 
 @lm.user_loader
 def load_user(id):
@@ -417,6 +419,7 @@ def registersuggester():
             user=User(email=email,password=pw,suggester=True,paypalemail=email)
             db.session.add(user)
             db.session.commit()
+            subscribe(email=email)
 
             token = generate_confirmation_token(user.email)
             flash('Your account has been created!')
