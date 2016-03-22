@@ -272,7 +272,7 @@ def projectpage(pnumber):
 
 @app.route('/postings')
 def postings():
-    allprojects = Posting.query.filter_by(status="Live").all()
+    allprojects = Posting.query.filter_by(status="Live").order_by("timestamp desc").all()
     closedprojects = Posting.query.filter_by(status="Closed").all()    
     return render_template('allprojects.html',
                            allprojects=allprojects,
