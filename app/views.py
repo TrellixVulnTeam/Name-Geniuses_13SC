@@ -257,7 +257,6 @@ def projectpage(pnumber):
     user=g.user
     projectdata = Posting.query.filter_by(id=pnumber).first()
     suggestdata= Suggestion.query.filter_by(posting_id=pnumber).all()
-    #winstatus=Suggestion.query.filter_by(posting_id=pnumber).filter_by(winstatus=True).first()
     winstatus=projectdata.winner
     if winstatus:
         winnerchosen=True
