@@ -14,7 +14,7 @@ from .emails import send_email, newemailsignup,sendbulk
 from .decorators import check_confirmed, check_admin
 from .domain import checkDomain, subscribe
 
-stripetesting=False
+stripetesting=True
 
 if stripetesting:
     stripe_keys = {
@@ -462,6 +462,11 @@ def charge(projectid,amount):
     Projectrecord.status="Live"
     db.session.commit()    
     flash("Payment successful, your project is live!")
+    
+    html = render_template('expectations.html')
+    subject = "Your Name Geniuses posting - what to expect"
+    send_email(user.email, subject, html)
+    
     return redirect(url_for('dashboard'))  
 
 @app.route('/editprofile', methods=['GET', 'POST'])
