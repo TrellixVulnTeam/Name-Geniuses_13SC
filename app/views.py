@@ -14,7 +14,7 @@ from .emails import send_email, newemailsignup,sendbulk
 from .decorators import check_confirmed, check_admin
 from .domain import checkDomain, subscribe
 
-stripetesting=True
+stripetesting=False
 
 if stripetesting:
     stripe_keys = {
