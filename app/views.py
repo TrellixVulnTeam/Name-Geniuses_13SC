@@ -576,6 +576,7 @@ def not_found_error(error):
 @app.errorhandler(500)
 def internal_error(error):
     db.session.rollback()
+    send_email(to=ADMINS[0], subject="500 error", template="There's a 500 error")
     return render_template('500.html'), 500
         
 @app.after_request
