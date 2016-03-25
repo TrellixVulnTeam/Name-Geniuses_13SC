@@ -84,7 +84,7 @@ def login():
         return redirect(url_for('dashboard'))
     form=LoginForm()
     if form.validate_on_submit():
-        username = form.email.data
+        username = form.email.data.lower()
         password = form.password.data
         user=User.query.filter_by(email=username).first()
         if user is None:
@@ -146,7 +146,7 @@ def register():
         return redirect(url_for('dashboard'))
     form=RegHybridForm()
     if form.validate_on_submit():
-        email = form.email.data
+        email = form.email.data.lower()
         pw= form.password.data
         user=User.query.filter_by(email=email).first()
         title = form.title.data
@@ -412,7 +412,7 @@ def registersuggester():
         return redirect(url_for('dashboard'))
     form=LoginForm()
     if form.validate_on_submit():
-        email = form.email.data
+        email = form.email.data.lower()
         pw= form.password.data
         user=User.query.filter_by(email=email).first()
         if user is None:
