@@ -49,8 +49,7 @@ def index():
     return render_template('index.html',
                            title='Home',
                            defaultfooter=True,
-                           heatmap=True,
-                           livechat=True)
+                           heatmap=True)
                            
 @app.route('/dashboard', methods=['GET', 'POST'])
 @login_required
@@ -188,8 +187,7 @@ def register():
     return render_template('register.html', 
                            title='Register',
                            form=form,
-                           heatmap=True,
-                           livechat=True)
+                           heatmap=True)
 
 @app.route('/confirm/<token>')
 @login_required
