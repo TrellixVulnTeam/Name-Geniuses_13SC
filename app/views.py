@@ -306,9 +306,13 @@ def pickwinner(pnumber,suggest,suggnumber):
         winningsuggester=User.query.filter_by(id=winner.suggester).first()
         winningsuggester.wins+=1
         if project.project_type== "Essential":
-            winningsuggester.totalwinnings+=project.project_prize*0.8
+            won=project.project_prize*0.8
+            winningsuggester.totalwinnings+=won
+            winningsuggester.paydue+=won
         else:
-            winningsuggester.totalwinnings+=(project.project_prize-40)*0.8            
+            won=(project.project_prize-40)*0.8  
+            winningsuggester.totalwinnings+=won
+            winningsuggester.paydue+=won
         db.session.commit()
     return redirect(url_for('dashboard'))
 
@@ -527,6 +531,28 @@ def adminemails():
                            title="Admin email panel",
                            form=form)
 
+@app.route('/adminpay', methods=['GET', 'POST'])
+@login_required
+@check_admin
+def adminpay():
+    winners=User.query.filter(User.paydue>0).all()
+    return render_template('adminpay.html', 
+                           title="Admin pay page",
+                           winners=winners)
+                           
+@app.route('/paid/<user>', methods=['GET', 'POST'])
+@login_required
+@check_admin
+def paid(user):
+    u=User.query.filter_by(id=user).first()
+    u.totalpaid=u.totalwinnings
+    u.paydue=0
+    db.session.commit()    
+    winners=User.query.filter(User.paydue>0).all()
+    return render_template('adminpay.html', 
+                           title="Admin pay page",
+                           winners=winners)                           
+    
 #landing pages
 @app.route('/businessnamegenerator')
 def busgeneratorlp():

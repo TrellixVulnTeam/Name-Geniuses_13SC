@@ -1,0 +1,16 @@
+
+<!-- extend base layout -->
+{% extends "base.html" %}
+
+{% block content %}
+<div class="dashboard">  
+    <table class="table table-bordered table-striped">
+        <tr><td>User email</td><td>user wins</td><td>Needs to be paid</td><td></td></tr>
+        {% for u in winners %}
+        <tr><td>{{ u.email }}</td><td>{{ u.wins }}</td><td>{{u.totalwinnings-u.totalpaid}}</td><td><a href="{{ url_for('paid', user=u.id) }}">Paid</a></td></tr>
+        {% endfor %}  
+    
+    </table>
+</div>
+
+{% endblock %}
