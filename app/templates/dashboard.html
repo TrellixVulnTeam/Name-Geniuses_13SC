@@ -32,7 +32,8 @@
     
         {% endif %}
         </div>
-    {% else %}
+    {% endif %}
+  {% if user.suggester %} 
         <table class="table table-bordered table-striped">
             <tr><td>Number of entries:</td><td>{{count}}</td></tr>
             <tr><td>Number of winning entries:</td><td>{{currentwins}}</td></tr>
