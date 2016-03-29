@@ -35,9 +35,9 @@
     {% endif %}
   {% if user.suggester %} 
         <table class="table table-bordered table-striped">
-            <tr><td>Number of entries:</td><td>{{count}}</td></tr>
-            <tr><td>Number of winning entries:</td><td>{{currentwins}}</td></tr>
-            <tr><td>Your earnings:</td><td>${{winnings}}</td></tr>
+            <tr><td>Number of suggestions:</td><td>{{count}}</td></tr>
+            <tr><td>Number of winning suggestions:</td><td>{{currentwins}}</td></tr>
+            <tr><td>Total earnings:</td><td>${{winnings}}</td></tr>
             <tr><td>Your Paypal email:</td><td>{{ user.paypalemail }} (<a href="{{ url_for('editprofile')}}">Change</a>)</td></tr>
         </table>
         {% if suggestions %}
