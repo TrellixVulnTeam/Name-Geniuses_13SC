@@ -499,6 +499,11 @@ def pricing():
     return render_template('pricing.html', 
                            title="Pricing")
 
+@app.route('/examples')
+def examples():
+    return render_template('examples.html', 
+                           title="Examples of Winning Domain Names")
+
 @app.route('/contact', methods=['GET', 'POST'])
 def contact():
     form=ContactForm()
