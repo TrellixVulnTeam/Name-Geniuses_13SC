@@ -1,0 +1,11 @@
+<!-- extend base layout -->
+{% extends "base.html" %}
+
+{% block content %}
+<div class="dashboard">  
+    <a href="{{ url_for('adminusers') }}">See all users</a><br>
+    <a href="{{ url_for('adminpay') }}">Pay users</a><br>
+    <a href="{{ url_for('adminprojects') }}">See all projects (and who posted them)</a>
+</div>
+
+{% endblock %}

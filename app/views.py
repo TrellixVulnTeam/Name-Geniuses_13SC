@@ -545,6 +545,32 @@ def adminpay():
                            title="Admin pay page",
                            winners=winners)
                            
+@app.route('/adminprojects')
+@login_required
+@check_admin
+def adminprojects():
+    projects = Posting.query.order_by("timestamp desc").all()
+
+    return render_template('adminprojects.html', 
+                           title="Admin project page",
+                           projects=projects)
+
+@app.route('/adminusers')
+@login_required
+@check_admin
+def adminusers():
+    users=User.query.all()
+    return render_template('adminusers.html', 
+                           title="All users",
+                           users=users)
+
+@app.route('/admin')
+@login_required
+@check_admin
+def admin():
+    return render_template('admin.html', 
+                           title="Adminpanel")     
+              
 @app.route('/paid/<user>', methods=['GET', 'POST'])
 @login_required
 @check_admin

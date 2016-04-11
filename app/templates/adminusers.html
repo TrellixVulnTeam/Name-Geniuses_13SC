@@ -1,0 +1,16 @@
+<!-- extend base layout -->
+{% extends "base.html" %}
+
+{% block content %}
+<a href="{{ url_for('adminusers') }}"></a>
+<div class="dashboard">  
+    <table class="table table-bordered table-striped">
+        <tr><td>User ID</td><td>Job poster</td><td>Email</td></tr>
+        {% for u in users %}
+        <tr><td>{{ u.id }}</td><td>{{ u.jobposter }}</td><td>{{u.email}}</td></tr>
+        {% endfor %}  
+    
+    </table>
+</div>
+
+{% endblock %}
