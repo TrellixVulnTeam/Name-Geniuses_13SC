@@ -617,7 +617,10 @@ def namemybusiness():
 def logout():
     logout_user()
     return redirect(url_for('index'))
-    
+
+@app.route('/disclaimer')
+def disclaimer():
+    return render_template('disclaimer.html')
     
 @app.route('/turnoffnotifications')
 @login_required

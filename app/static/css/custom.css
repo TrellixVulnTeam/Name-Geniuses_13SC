@@ -530,6 +530,10 @@ font-family: 'Catamaran', sans-serif;
     margin:auto;
 }
 
+footer td{
+padding-right:1em;
+padding-left:1em;
+}
 
 #pricetop h1{
 margin-bottom:1em;}
