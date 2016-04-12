@@ -21,7 +21,7 @@ class User(UserMixin, db.Model):
     emailnotes=db.Column(db.Boolean, default=True)
     postings = db.relationship('Posting', backref='creator', lazy='dynamic')
     admin=db.Column(db.Boolean, default=False)
-
+    
     
     @hybrid_property
     def password(self):
@@ -74,7 +74,9 @@ class Posting(db.Model):
     project_type = db.Column(db.String(140)) 
     project_prize=db.Column(db.Float)
     number_of_entries=db.Column(db.Integer, default=0)
-    
+    filter_addon=db.Column(db.Boolean, default=False) 
+    validation_addon=db.Column(db.Boolean, default=False) 
+
     
     def __repr__(self):
         return '<Post %r>' % (self.title)

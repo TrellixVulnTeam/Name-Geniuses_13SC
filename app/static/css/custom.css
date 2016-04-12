@@ -135,6 +135,64 @@ color:#FFF!important;
 }
 
 
+.pricebutton a{
+margin-top:2em;
+color:#FFF!important;
+}
+
+.pricebutton{
+width:50%;
+margin:auto;
+}
+
+.pricebuttonbox a{
+margin-top:2em;
+color:#FFF!important;
+}
+
+.sidebutton a{
+margin-top:40px;
+}
+
+.sidebutton a{
+border-radius:2em;}
+
+
+
+#pricebottom{
+background-color:#31c08a;
+overflow:auto;
+padding-bottom:12em;
+padding-top:8em;
+color:#FFF;
+font-family: 'Catamaran', sans-serif;
+
+}
+
+.sidebuttonleft{float:left;text-align:center;}
+.sidebuttonright{float:right;text-align:center;}
+
+.finalpricebutton{background-color:#FFF;color:#31c08a!important;}
+.finalpricebuttonright{background-color:#31c08a;color:#FFF!important;border:2px solid #FFF;}
+.finalpricebuttonright:hover {
+    outline: 0;
+    background-color: hsla(0,0%,100%,.1);
+}
+
+
+#bottombuttons{
+width:60%;
+margin:auto;
+}
+
+
+
+
+.divider{
+width:60%;
+border-bottom:solid 2px #e6e6e6;
+margin:auto;
+}
 
 .projectbutton{
 font-size: 16px;
@@ -453,6 +511,31 @@ img {max-width:100%;}
 .greenbox{background:green;}
 .orangebox{background:#f2683a;}
 
+#pricetop{
+    text-align:center;
+    padding-top:104px;
+    padding-bottom:124px;
+    overflow:auto;
+    width:50%;
+    margin:auto;
+font-family: 'Catamaran', sans-serif;
+}
+
+#pricemiddle{
+    text-align:center;
+    padding-top:104px;
+    padding-bottom:124px;
+    overflow:auto;
+    width:80%;
+    margin:auto;
+}
+
+
+#pricetop h1{
+margin-bottom:1em;}
+
+.roundbutton{border-radius:2em;}
+
 @media (max-width: 500px){
     .buttonbox { width:100%;}
     #headerboxoutside {padding-top: 30px;padding-bottom: 30px;}
@@ -473,6 +556,10 @@ img {max-width:100%;}
     .examplebox{display:block;width:95%; margin-right:2%;margin-left:2%;margin-bottom:20px;margin-top:20px;color:white;font-family: 'Catamaran', sans-serif;padding: 10px 10px 20px 10px;font-size:1.5em;}
     .examplebox h2{font-weight:bold;margin-bottom:25px;margin-left:3%;margin-right:3%;}
     .examplebox ul{margin-left:6%;}
+    #pricebox{background-color:#393d41;color:#FFF; width:90%;margin:auto;margin-top:2em;margin-bottom:2em;padding-top:2em; overflow:auto;   padding-bottom:3.5em;    padding-right:2em;    padding-left:2em;    font-family: 'Catamaran', sans-serif;}
+    .pricebuttonbox{width:100%;margin:auto;border-radius:2em;}
+    #pricebottominside{width:90%;text-align:center;margin:auto;}
+
 }
 
 @media (max-width: 740px) and (min-width: 501px) {
@@ -497,6 +584,10 @@ img {max-width:100%;}
     .examplebox{display:block;width:95%; margin-right:2%;margin-left:2%;margin-bottom:20px;margin-top:20px;color:white;font-family: 'Catamaran', sans-serif;padding: 10px 10px 20px 10px;font-size:1.5em;}
     .examplebox h2{font-weight:bold;margin-bottom:25px;margin-left:3%;margin-right:3%;}
     .examplebox ul{margin-left:6%;}
+    #pricebox{background-color:#393d41;color:#FFF; width:80%;margin:auto;margin-top:2em;margin-bottom:2em;padding-top:2em; overflow:auto;   padding-bottom:3.5em;    padding-right:2em;    padding-left:2em;    font-family: 'Catamaran', sans-serif;}
+    .pricebuttonbox{width:100%;margin:auto;border-radius:2em;}
+    #pricebottominside{width:80%;text-align:center;margin:auto;}
+
 }
 
 
@@ -522,6 +613,10 @@ img {max-width:100%;}
     .examplebox ul{margin-left:6%;}
     .exleft{float:left}
     .exright{float:right}
+    #pricebox{background-color:#393d41;color:#FFF; width:70%;margin:auto;margin-top:2em;margin-bottom:2em;padding-top:2em; overflow:auto;   padding-bottom:3.5em;    padding-right:2em;    padding-left:2em;    font-family: 'Catamaran', sans-serif;}
+    .pricebuttonbox{width:80%;margin:auto;border-radius:2em;}
+    #pricebottominside{width:60%;text-align:center;margin:auto;}
+
 }
 
 @media (max-width: 1299px) and (min-width: 900px) {
@@ -542,6 +637,10 @@ img {max-width:100%;}
     .examplebox ul{margin-left:6%;}
     .exleft{float:left}
     .exright{float:right}
+    #pricebox{background-color:#393d41;    color:#FFF;    width:30%;    margin-right:1%;    margin-left:1%;    float:left;    overflow:auto;    padding-top:2em;    padding-bottom:3.5em;    padding-right:2em;    padding-left:2em;    font-family: 'Catamaran', sans-serif;}
+    .pricebuttonbox{width:80%;margin:auto;border-radius:2em;}
+    #pricebottominside{width:40%;text-align:center;margin:auto;}
+
 }
 
 @media (min-width: 1300px) {
@@ -558,4 +657,8 @@ img {max-width:100%;}
     .examplebox ul{margin-left:6%;}
     .exleft{float:left}
     .exright{float:right}
+    #pricebox{background-color:#393d41;    color:#FFF;    width:30%;    margin-right:1%;    margin-left:1%;    float:left;    overflow:auto;    padding-top:2em;    padding-bottom:3.5em;    padding-right:4em;    padding-left:4em;    font-family: 'Catamaran', sans-serif;}
+    .pricebuttonbox{width:80%;margin:auto;border-radius:2em;}
+#pricebottominside{width:40%;text-align:center;margin:auto;}
+
 }

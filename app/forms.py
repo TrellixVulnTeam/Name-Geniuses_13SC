@@ -1,7 +1,6 @@
 from flask.ext.wtf import Form
-from wtforms import StringField, PasswordField, TextAreaField, SelectField,IntegerField
+from wtforms import StringField, PasswordField, TextAreaField, SelectField,IntegerField,BooleanField
 from wtforms.validators import DataRequired,Optional, NumberRange
-
 
 class LoginForm(Form):
     email = StringField('email', validators=[DataRequired()])
@@ -20,9 +19,9 @@ class PostForm(Form):
     title = StringField('title', validators=[DataRequired()])
     description = TextAreaField('description', validators=[DataRequired()])
     Anything_else = TextAreaField('Anything_else')
-    project_type=SelectField('Type of project', choices=[("Essential","Essential"),("Extra","Extra")])
     project_prize=IntegerField('project prize', validators=[NumberRange(min=20)])
-
+    addon_filter=BooleanField('filter add-on option')
+    addon_validation=BooleanField('validation add-on option')
     
 class SuggestForm(Form):
     Suggest1 = StringField('Suggest1', validators=[DataRequired()])
@@ -46,5 +45,6 @@ class RegHybridForm(Form):
     title = StringField('title', validators=[DataRequired()])
     description = TextAreaField('description', validators=[DataRequired()])
     Anything_else = TextAreaField('Anything_else')
-    project_type=SelectField('Type of project', choices=[("Essential","Essential"),("Extra","Extra")])
-    project_prize=IntegerField('project prize', validators=[NumberRange(min=20)])    
+    project_prize=IntegerField('project prize', validators=[NumberRange(min=20)])
+    addon_filter=BooleanField('filter add-on option')
+    addon_validation=BooleanField('validation add-on option')

@@ -39,15 +39,25 @@
           <div class="form-group">
             <p>3. Is there anything else that might influence the name? (e.g. certain words you might want included, type of customer to appeal to, length of domain, domain extension, etc.)</p>
             {{ form.Anything_else(class="tarea")}}
+            {% for message in form.Anything_else.errors %}
+              <div class="flash">Error: {{ message }}</div>
+            {% endfor %}
           </div>
           <div class="form-group">
-            <p>Which package would you like to buy for this project? (Refer to <a href="{{ url_for('pricing') }}">the pricing page for details</a>)</p>
-            {{ form.project_type(class="dropdownmenu")}}
-          </div>
-          <div class="form-group">
-            <p>How much would you like to pay? (Minimum 20 for "essential" package, 80 for "extra")</p>
+            <p>How much would you like to pay? (Minimum 20)</p>
             {{ form.project_prize(class="pinputfield")}}
             {% for message in form.project_prize.errors %}
+              <div class="flash">Error: {{ message }}</div>
+            {% endfor %}
+          </div>
+          <div class="form-group">
+            <p>Would you like any add-ons? (Refer to <a href="{{ url_for('pricing') }}">the pricing page for details</a>)</p>
+            <p>{{ form.addon_filter()}} "Get Help Choosing" (+$40)</p>
+            {% for message in form.addon_filter.errors %}
+              <div class="flash">Error: {{ message }}</div>
+            {% endfor %}
+            <p>{{ form.addon_validation()}} "Name Validation" (+$100)<p>
+            {% for message in form.addon_validation.errors %}
               <div class="flash">Error: {{ message }}</div>
             {% endfor %}
           </div>

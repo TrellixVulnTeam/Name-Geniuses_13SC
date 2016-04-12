@@ -29,8 +29,6 @@ else:
 
 stripe.api_key = stripe_keys['secret_key']
 
-
-
 @lm.user_loader
 def load_user(id):
     return User.query.get(int(id))
@@ -151,16 +149,17 @@ def register():
         title = form.title.data
         description= form.description.data
         anyelse=form.Anything_else.data
-        project_type=form.project_type.data
+        project_type="Essential"
         project_prize=float(form.project_prize.data)
         time=datetime.utcnow()
         timeday=time.date()
-        
+        filteraddon=form.addon_filter.data
+        validation=form.addon_validation.data
         if user is None:
             user=User(email=email,password=pw,jobposter=True,paypalemail=email)
             db.session.add(user)
             db.session.commit()
-            project=Posting(title=title, anything_else=anyelse, description=description, creator=user, timestamp=time, timestamp_day=timeday, project_type=project_type, project_prize=project_prize)
+            project=Posting(title=title, anything_else=anyelse, description=description, creator=user, timestamp=time, timestamp_day=timeday, validation_addon=validation, filter_addon=filteraddon, project_type=project_type, project_prize=project_prize)
             db.session.add(project)
             db.session.commit()
             
@@ -176,7 +175,7 @@ def register():
             return redirect(url_for('unconfirmed'))            
         if user.is_correct_password(pw):
             login_user(user)
-            project=Posting(title=title, anything_else=anyelse, description=description, creator=user, timestamp=time, timestamp_day=timeday, project_type=project_type, project_prize=project_prize)
+            project=Posting(title=title, anything_else=anyelse, description=description, creator=user, timestamp=time, timestamp_day=timeday, validation_addon=validation, filter_addon=filteraddon, project_type=project_type, project_prize=project_prize)
             db.session.add(project)
             db.session.commit()
             return redirect(url_for('dashboard'))        
@@ -238,18 +237,30 @@ def newproject():
         title = form.title.data
         description= form.description.data
         anyelse=form.Anything_else.data
-        project_type=form.project_type.data
         project_prize=float(form.project_prize.data)
         time=datetime.utcnow()
         timeday=time.date()
-        project=Posting(title=title, anything_else=anyelse, description=description, creator=g.user, timestamp=time, timestamp_day=timeday, project_type=project_type, project_prize=project_prize)
+        project_type="Essential"
+        filteraddon=form.addon_filter.data
+        validation=form.addon_validation.data
+        project=Posting(title=title, anything_else=anyelse, description=description, creator=g.user, timestamp=time, timestamp_day=timeday, validation_addon=validation, filter_addon=filteraddon, project_type=project_type, project_prize=project_prize)
         db.session.add(project)
         db.session.commit()     
         return redirect(url_for('dashboard'))
+    else:
+        flash_errors(form)
     return render_template('newproject.html', 
                            title='Create a new project',
                            form=form)
-                                  
+ 
+def flash_errors(form):
+    for field, errors in form.errors.items():
+        for error in errors:
+            flash(u"Error in the %s field - %s" % (
+                getattr(form, field).label.text,
+                error
+            ))
+                                 
 @app.route('/project/<pnumber>')
 def projectpage(pnumber):
     user=g.user
@@ -491,6 +502,10 @@ def payment(pid, ptype):
     key=stripe_keys['publishable_key']
     project=Posting.query.filter_by(id=pid).first()    
     amount=project.project_prize
+    if project.filter_addon:
+        amount+=40
+    if project.validation_addon:
+        amount+=100
     centsamount=amount*100
     return render_template('payment.html', amount=amount, centsamount=centsamount,key=key, projectid=pid, title="Payment")
 

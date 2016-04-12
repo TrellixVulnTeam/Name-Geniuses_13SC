@@ -4,38 +4,52 @@
 {% block content %}
 
 {% include 'flash.html' %}
-<div id="pricepage">
-<h1>Simple Pay What You Want Pricing</h1>
-<div id="pricepoints">
-<p>The user with the winning name suggestion (chosen by you), gets a large percentage of the price you pay.</p>
-
-<p>The more you choose pay, the more incentive there is for our users to spend more time and effort coming up with the PERFECT domain name for your site.</p>
-
-<p>You only pay <i>after</i> you set up your project. <strong>You can pay whatever you'd like, the only rule is that there is a $20 minimum</strong>.</p>
+<div id="pricetop">
+    <h1>Simple, pay-what-you-want pricing</h1>
+    <p>Everybody starts off with the same pay-what-you-want package. Then, there are optional add-ons to help you find the perfect business name.</p>
+    <div class="pricebutton"><a href="{{ url_for('register') }}" class="bigbutton button-orange button-left"><strong>Get started now</strong></a></div>    
 </div>
-    <div id="pricecontainer">
-        
-        <div id="priceleft">
-            <h3 style="color:#528EAD;font-size:2.5em;">Essential (Minimum $20)</h3>
-            <p class="price">Price: Pay what you want</p>
-            <p><i>What you get:</i></p>
-            <ul><li>Hundreds of great domain idea suggestions</li>
-                <li>You can choose the winning domain name whenever you want</li>
-                <li>An unlimited number of users can enter suggestions<p>
-            </ul>
-        </div>
-        
-        <div id="priceright">
-            <h3 style="color:#5AB781;font-size:2.5em;">Extra<strong> (Minimum $80)</strong></h3>
-            <p class="price">Price: Pay what you want </p>
-            <p><i>What you get:</i></p>
-            <ul><li>Everything from the essential package</li>
-                <li>We manually go through the hundreds of suggestions you get and leave you with only the best suggestions (usually a list of 10-20).</li>
-            </ul>
-        </div>
-    
+<div class="divider"></div>
+
+<div id="pricemiddle">
+
+    <div id="pricebox">
+        <h3 style="font-size:2.5em;">Basic (<i>$20 minimum</i>)</h3>
+        <h3>(Required)</h3>
+        <p>Get 50+ domain name ideas to choose from. The more you pay, the more ideas you will get.</p>
+    <div class="pricebuttonbox"><a href="{{ url_for('register') }}" class="roundbutton bigbutton button-orange button-left"><strong>Get started now</strong></a></div>    
+
     </div>
-    <div class="buttonbox spacetop"><a href="{{ url_for('register') }}" class="bigbutton button-orange">Post your business now!</a></div>
+
+    <div id="pricebox">
+        <h3 style=";font-size:2.5em;">Get Help Choosing ($40)</h3>
+        <h3>(Add-on)</h3>
+        <p>We will narrow down your list of 50+ ideas to a list of the best 5-10 (you pick how many).</p>
+        
+    <div class="pricebuttonbox"><a href="{{ url_for('register') }}" class="roundbutton bigbutton button-orange button-left"><strong>Get started now</strong></a></div>    
+
+    </div>
+
+    <div id="pricebox">
+        <h3 style="font-size:2.5em;">Name Validation ($100)</h3>
+        <h3>(Add-on)</h3>
+        <p>We will survey 50 of your potential customers to see which name they like best (2-5 days).</p>
+    <div class="pricebuttonbox"><a href="{{ url_for('register') }}" class="roundbutton bigbutton button-orange button-left"><strong>Get started now</strong></a></div>    
+
+    </div>      
 
 </div>
+
+
+<div id="pricebottom">
+    <div id="pricebottominside">
+        <h1>Start your business off right with an unforgettable name...</h1>
+        <div id="bottombuttons">
+            <div class="sidebutton sidebuttonleft"><a href="{{ url_for('examples') }}" class="bigbutton button-orange button-left finalpricebutton"><strong>See examples</strong></a></div> 
+            <div class="sidebutton sidebuttonright"><a href="{{ url_for('contact') }}" class="bigbutton button-orange button-left finalpricebuttonright"><strong>Ask a question</strong></a></div>    
+        </div>
+    </div>
+</div>
+
+
 {% endblock %}
