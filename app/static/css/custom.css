@@ -539,6 +539,7 @@ padding-left:1em;
 margin-bottom:1em;}
 
 .roundbutton{border-radius:2em;}
+.examplebox a{color:#FFF;}
 
 @media (max-width: 500px){
     .buttonbox { width:100%;}
