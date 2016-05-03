@@ -5,7 +5,6 @@
 <div class="projpage">
    <div><h1>Title:  {{ pdata.title}} {% if winnerchosen %} - [Project Closed] {% endif %} </h1></div>
    {% if winnerchosen %}<div><h2>Winning name: {{ pdata.winner }}</h2></div>{% endif %}
-   <div><i><h4>Project type:</h4></i><p> {{pdata.project_type}}</p></div>
    <div><i><h4>Business description:</h4></i><p> {{pdata.description}}</p></div>
    <div><i><h4>Additional notes: </h4></i>{{pdata.anything_else}}</div>
          {% include 'flash.html' %}
