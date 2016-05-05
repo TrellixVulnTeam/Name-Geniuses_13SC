@@ -47,7 +47,8 @@ def index():
     return render_template('index.html',
                            title='Home',
                            defaultfooter=True,
-                           heatmap=True)
+                           heatmap=True,
+                           home=True)
                            
 @app.route('/dashboard', methods=['GET', 'POST'])
 @login_required
@@ -95,7 +96,8 @@ def login():
             return redirect(url_for('login'))                        
     return render_template('login.html', 
                            title='Sign In',
-                           form=form)
+                           form=form,
+                           canonical="login")
                            
 @app.route('/forgotpassword', methods=['GET', 'POST'])
 def forgotpassword():
@@ -117,7 +119,8 @@ def forgotpassword():
             send_email(user.email, subject, html)             
     return render_template('forgotpassword.html', 
                            title='Forgot Password',
-                           form=form)         
+                           form=form,
+                           canonical="forgotpassword")         
 
 @app.route('/newpassword/<token>', methods=['GET', 'POST'])
 def newpassword(token):
@@ -286,7 +289,8 @@ def postings():
     return render_template('allprojects.html',
                            allprojects=allprojects,
                            closedprojects=closedprojects,
-                           title="All projects")
+                           title="All projects",
+                           canonical="postings")
 
 @app.route('/pickwinner/<pnumber>/<suggest>/<suggnumber>')
 @login_required
@@ -416,7 +420,8 @@ def suggester():
     if g.user is not None and g.user.is_authenticated:
         return redirect(url_for('dashboard'))
     return render_template('becomesuggester.html', 
-                           title='Become a suggester')
+                           title='Become a suggester',
+                           canonical="becomesuggester")
 
 
 @app.route('/registersuggester', methods=['GET', 'POST'])
@@ -513,12 +518,14 @@ def payment(pid, ptype):
 def pricing():
     return render_template('pricing.html', 
                            title="Pricing",
-                           heatmap=True)
+                           heatmap=True,
+                           canonical="pricing")
 
 @app.route('/examples')
 def examples():
     return render_template('examples.html', 
-                           title="Examples of Winning Domain Names")
+                           title="Examples of Winning Domain Names",
+                           canonical="examples")
 
 @app.route('/contact', methods=['GET', 'POST'])
 def contact():
@@ -532,7 +539,8 @@ def contact():
         flash("Your message has been sent! I'll get back to you as soon as I can.")
     return render_template('contact.html', 
                            title="Contact", 
-                           form=form)
+                           form=form,
+                           canonical="contact")
 
 @app.route('/adminemails', methods=['GET', 'POST'])
 @login_required
@@ -599,18 +607,7 @@ def paid(user):
     return render_template('adminpay.html', 
                            title="Admin pay page",
                            winners=winners)                           
-    
-#landing pages
-@app.route('/businessnamegenerator')
-def busgeneratorlp():
-    return render_template('busgeneratorlp.html', 
-                           title="business name generators suck")
 
-@app.route('/namemybusiness')
-def namemybusiness():
-    return render_template('namemybusinesslp.html', 
-                           title="Name my business",
-                           heatmap=True)
 
 #functions
 @app.route('/logout')
@@ -661,4 +658,8 @@ def after_request(response):
         if query.duration >= DATABASE_QUERY_TIMEOUT:
             app.logger.warning("SLOW QUERY: %s\nParameters: %s\nDuration: %fs\nContext: %s\n" % (query.statement, query.parameters, query.duration, query.context))
     return response
-    
+
+@app.route('/sitemap')
+def sitemap():
+    return render_template('sitemap.xml')
+
