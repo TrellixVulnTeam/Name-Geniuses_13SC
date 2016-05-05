@@ -40,6 +40,8 @@ def before_request():
         g.user.last_seen = datetime.utcnow()
         db.session.add(g.user)
         db.session.commit()    
+    if 'https' not in request.url:
+        return redirect(request.url.replace('http', 'https'))
 
 
 @app.route('/', methods=['GET', 'POST'])
