@@ -41,7 +41,6 @@ def before_request():
         db.session.add(g.user)
         db.session.commit()    
 
-
 @app.route('/', methods=['GET', 'POST'])
 def index():
     return render_template('index.html',

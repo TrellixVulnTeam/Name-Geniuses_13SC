@@ -15,13 +15,12 @@ SQLALCHEMY_RECORD_QUERIES = True
 
 # mail server settings
 # email server
-MAIL_SERVER = 'mail.privateemail.com'
+MAIL_SERVER = 'smtp.googlemail.com'
 MAIL_PORT = 465
 MAIL_USE_TLS = False
 MAIL_USE_SSL = True
-MAIL_USERNAME = 'dale@namegeniuses.com'
-MAIL_PASSWORD='wa6mxNknt8qt'
-MAIL_MAX_EMAILS=40
+MAIL_USERNAME = 'dalecudmore@gmail.com'
+MAIL_PASSWORD='Seal1951'
 
 # administrator list
 ADMINS = ['dale@namegeniuses.com']
