@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="contentwrapper aligncenter">
-    <h2>Once you make a payment, your project will instantly go live</h2>
+    <h2>Once you make a payment, your project will instantly go live. Note that billing address and zip code is only for billing purposes, it is not recorded, nor will you ever be mailed anything.</h2>
   <form action="/charge/{{projectid}}/{{amount}}" method="post">
     <article>
       <label>
@@ -13,7 +13,10 @@
             data-key="{{ key }}"
             data-description="Domain name service charge"
             data-amount="{{ centsamount }}"
-            data-locale="auto"></script>
+            data-locale="auto"
+            data-zip-code="true"
+            billingAddress="true">
+    </script>
   </form>
 </div>
 <!-- Google Code for Domain name package Conversion Page -->
