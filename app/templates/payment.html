@@ -3,12 +3,9 @@
 <div class="contentwrapper aligncenter">
     <h2>Once you make a payment, your project will instantly go live.</h2>
   <form action="/charge/{{projectid}}/{{amount}}" method="post">
-    <article>
-      <label>
-        <span>For your chosen package, the cost is ${{ amount }}</span>
-      </label>
-    </article>
 
+    <p>For your chosen package, the cost is ${{ amount }}</p>
+    <p>Note that no address information is stored in any way, and you'll never be sent anything in the mail. It's solely for credit card verification.</p>
     <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
             data-key="{{ key }}"
             data-description="Domain name service charge"
