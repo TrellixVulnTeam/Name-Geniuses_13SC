@@ -578,6 +578,24 @@ def adminprojects():
                            title="Admin project page",
                            projects=projects)
 
+@app.route('/followup/<pid>')
+@login_required
+@check_admin
+def followup(pid):    
+    projectfollowup = Posting.query.filter_by(id=pid).first()
+    poster=projectfollowup.user_id
+    
+    posterinfo=User.query.filter_by(id=poster).first()
+    email=posterinfo.email
+    html=render_template('followupemail.html')
+    send_email(to=email, subject="Update on your Name Geniuses posting", template=html)    
+    
+    projects = Posting.query.order_by("timestamp desc").all()
+
+    return render_template('adminprojects.html', 
+                           title="Admin project page",
+                           projects=projects)
+
 @app.route('/adminusers')
 @login_required
 @check_admin

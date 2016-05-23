@@ -5,11 +5,10 @@
 <a href="{{ url_for('adminusers') }}">See all users</a>
 <div class="dashboard">  
     <table class="table table-bordered table-striped">
-        <tr><td>ID</td><td>Poster ID</td><td>Title</td></tr>
+        <tr><td>ID</td><td>Poster ID</td><td>Title</td><td>Filter Addon?</td><td>Validation Addon?</td><td>Posting date</td><td>Status</td><td></td></tr>
         {% for p in projects %}
-        <tr><td>{{ p.id }}</td><td>{{ p.user_id }}</td><td>{{p.title}}</td></tr>
-        {% endfor %}  
-    
+        <tr><td>{{ p.id }}</td><td>{{ p.user_id }}</td><td>{{p.title}}</td><td>{{p.filter_addon}}</td><td>{{p.validation_addon}}</td><td>{{p.timestamp_day}}</td><td>{{p.status}}</td><td><a href="{{ url_for('followup', pid=p.id) }}">Send followup</a></td></tr>
+        {% endfor %}      
     </table>
 </div>
 
