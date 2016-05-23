@@ -280,6 +280,27 @@ def projectpage(pnumber):
                            winnerchosen=winnerchosen,
                            winstatus=winstatus,
                            title="Project details")
+                           
+
+@app.route('/project/<pnumber>/admin')
+@login_required
+@check_admin
+def projectpageadmin(pnumber):
+    user=g.user
+    projectdata = Posting.query.filter_by(id=pnumber).first()
+    suggestdata= Suggestion.query.filter_by(posting_id=pnumber).all()
+    winstatus=projectdata.winner
+    if winstatus:
+        winnerchosen=True
+    else:
+        winnerchosen=False
+    return render_template('projectpageadmin.html',
+                           user=user,
+                           pdata=projectdata,
+                           suggestdata=suggestdata,
+                           winnerchosen=winnerchosen,
+                           winstatus=winstatus,
+                           title="Project details")
 
 @app.route('/postings')
 def postings():
@@ -302,7 +323,7 @@ def pickwinner(pnumber,suggest,suggnumber):
         flash("You've already picked a winner")
         return redirect(url_for('projectpage', pnumber=pnumber))
     #checks if current user (the project poster) is equal to the project poster; just to ensure no one else is able to pick a winner
-    if user.id==project.user_id:
+    if user.id==project.user_id or user.admin==True:
         winner=Suggestion.query.filter_by(id=suggest).first()
         winner.winstatus=True
         project.status="Closed"

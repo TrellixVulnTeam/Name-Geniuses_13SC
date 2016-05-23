@@ -1,0 +1,38 @@
+<!-- extend base layout -->
+{% extends "base.html" %}
+
+{% block content %}
+<div class="projpage">
+   <div><h1>Title:  {{ pdata.title}} {% if winnerchosen %} - [Project Closed] {% endif %} </h1></div>
+   {% if winnerchosen %}<div><h2>Winning name: {{ pdata.winner }}</h2></div>{% endif %}
+   <div><i><h4>Business description:</h4></i><p> {{pdata.description}}</p></div>
+   <div><i><h4>Additional notes: </h4></i>{{pdata.anything_else}}</div>
+         {% include 'flash.html' %}
+
+
+    <div class="suggestions"><h2>Suggestions by our users</h2>
+        <p>The suggestions <i>should</i> all be available for registration (our tool checks them). However, in rare cases there may be a mistake. Please double check that the domain is available before choosing a winner, thanks.</p>
+        <p>Problems? Contact me at Dale@namegeniuses.com, I'll get back to you a.s.a.p. and sort things out.</p>
+        <table class="table table-bordered table-striped">
+        <tr><td>Entry</td><td></td></tr>
+        {% for sug in suggestdata %}
+            {% if sug.Suggest1 %}
+                <tr><td>{{sug.Suggest1}}</td><td><a href="{{ url_for('pickwinner',pnumber=pdata.id, suggest=sug.id, suggnumber='1') }}">Pick as winner</a></td></tr>
+            {% endif %}
+            {% if sug.Suggest2 %}
+                <tr><td>{{sug.Suggest2}}</td><td><a href="{{ url_for('pickwinner',pnumber=pdata.id, suggest=sug.id, suggnumber='2') }}">Pick as winner</a></td></tr>
+            {% endif %}
+            {% if sug.Suggest3 %}
+                <tr><td>{{sug.Suggest3}}</td><td><a href="{{ url_for('pickwinner',pnumber=pdata.id, suggest=sug.id, suggnumber='3') }}">Pick as winner</a></td></tr>
+            {% endif %}
+            {% if sug.Suggest4 %}
+                <tr><td>{{sug.Suggest4}}</td><td><a href="{{ url_for('pickwinner',pnumber=pdata.id, suggest=sug.id, suggnumber='4') }}">Pick as winner</a></td></tr>
+            {% endif %}
+            {% if sug.Suggest5 %}
+                <tr><td>{{sug.Suggest5}}</td><td><a href="{{ url_for('pickwinner',pnumber=pdata.id, suggest=sug.id, suggnumber='5') }}">Pick as winner</a></td></tr>
+            {% endif %}
+        {% endfor %}
+        </table>
+
+</div>      
+{% endblock %}
