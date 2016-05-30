@@ -1,0 +1,669 @@
+
+
+.container-fluid {
+padding:0px;
+}
+
+#headerboxoutside{
+width:100%;
+display:block;
+background-color:#FFF;
+text-align:center;
+padding-top:40px;
+}
+
+nav.navbar.navbar-default.navbar-static-top{
+background-color:#7EC0EE;
+color:#FFF;
+font-size:1.3em;
+}
+
+.navbar-brand{
+font-size: 1.4em;
+}
+
+nav.navbar.navbar-default.navbar-static-top a{
+color:#FFF;
+}
+
+#headerboxcontent{
+color:#3498DB;
+width:60%;
+margin:auto;
+}
+
+#headerboxcontent a{
+color:#7EC0EE;
+}
+
+#headerboxcontent h1{
+color:#3498DB;
+font-size:4.0em;
+margin-bottom:60px;
+}
+
+#headerboxcontent p{
+color:#3498DB;
+font-size:2.0em;
+}
+
+#bulletpoints {
+text-align:left;
+width:80%;
+margin: 35px 0px;
+margin-left:auto;
+margin-right:auto;
+}
+
+#bulletpointslp {
+text-align:left;
+width:80%;
+margin: 15px 0px;
+margin-left:auto;
+margin-right:auto;
+}
+
+.navbar{
+margin:0px;
+padding:0px;
+}
+
+.redtext{
+color:red;}
+
+.spacetop{
+margin-top:30px;
+}
+
+.aligncenter{
+text-align:center;}
+
+.alignleft{
+text-align:left;}
+
+.alignright{
+text-align:right;}
+
+.extraspace{
+margin-top:50px;
+margin-bottom:20px;
+}
+
+#pricecontainer{
+margin:auto;
+width:100%;
+display:block;
+overflow: auto;
+}
+
+.bigbutton {
+font-size: 16px;
+padding: 1em 2em;
+text-transform: uppercase;
+}
+
+.button-orange{
+background-color:#f2683a;
+color:#FFF;
+}
+.projectbuttoncontainer{
+display:block;
+}
+
+.button-left{
+display:block;
+float:left;
+width:100%;}
+
+.button-right{
+display:block;
+float:right;
+width:100%;}
+
+.button-blue{
+background-color:#52B3D9;
+color:#FFF;
+}
+
+.buttonbox{
+margin-top:30px;
+}
+
+.buttonbox a{
+margin-top:40px;
+color:#FFF!important;
+}
+
+
+.pricebutton a{
+margin-top:2em;
+color:#FFF!important;
+}
+
+.pricebutton{
+width:50%;
+margin:auto;
+}
+
+.pricebuttonbox a{
+margin-top:2em;
+color:#FFF!important;
+}
+
+.sidebutton a{
+margin-top:40px;
+}
+
+.sidebutton a{
+border-radius:2em;}
+
+
+
+#pricebottom{
+background-color:#31c08a;
+overflow:auto;
+padding-bottom:12em;
+padding-top:8em;
+color:#FFF;
+font-family: 'Catamaran', sans-serif;
+
+}
+
+.sidebuttonleft{float:left;text-align:center;}
+.sidebuttonright{float:right;text-align:center;}
+
+.finalpricebutton{background-color:#FFF;color:#31c08a!important;}
+.finalpricebuttonright{background-color:#31c08a;color:#FFF!important;border:2px solid #FFF;}
+.finalpricebuttonright:hover {
+    outline: 0;
+    background-color: hsla(0,0%,100%,.1);
+}
+
+
+#bottombuttons{
+width:60%;
+margin:auto;
+}
+
+
+
+
+.divider{
+width:60%;
+border-bottom:solid 2px #e6e6e6;
+margin:auto;
+}
+
+.projectbutton{
+font-size: 16px;
+padding: 1em 2em;
+text-transform: uppercase;
+border-radius:5px;
+}
+
+.contactform{
+width:60%;
+margin:auto;
+margin-top:50px;
+}
+
+.loginform{
+margin-left:auto;
+margin-right:auto;
+max-width:300px;
+}
+
+.inputfield{
+width:100%;
+height:43px;
+padding-left:10%;
+padding-right:2.5%;
+padding-top:7px;
+padding-bottom:7px;
+}
+
+.btn-big{
+width:100%;
+background-color:#f2683a;
+color:#FFF;
+}
+
+.buttoncontainer{
+text-align:right;
+}
+
+.checkbox{
+width:49%;
+display:block;
+float:left;
+margin-top:0px;
+margin-bottom:20px;
+}
+
+.forgotpw{
+width:49%;
+display:block;
+float:right;
+margin-top:0px;
+margin-bottom:20px;
+text-align:right;
+}
+
+.footer{
+width:100%;
+text-align:center;
+height:60px;
+border-top:1px solid #B7B4B4;
+margin-top:40px;
+}
+
+.howitworksoutside{
+width:100%;
+margin:auto;
+background-color:#E2F3FE;
+padding-top:60px;
+padding-bottom:60px;
+}
+
+
+
+.howitworks h2{
+margin-bottom:30px;
+font-size:2.5em;}
+
+.paylink {
+color:#E88437;
+}
+
+.faqoutside{
+width:100%;
+margin:auto;
+background-color:#FFF;
+padding-top:60px;
+padding-bottom:60px;
+}
+
+.faqinside{
+width:60%;
+margin:auto;
+}
+
+.faqleft{
+width:46%;
+float:left;
+display:block;
+}
+
+.faqright{
+width:46%;
+display:block;
+float:right;}
+
+.faqoutside h2{
+margin-bottom:30px;}
+
+.faqoutside h3{
+color:#4183D7;}
+
+.footer table{
+text-align:center;
+margin-left:auto;
+margin-right:auto;
+line-height:60px;
+}
+
+.dashboard{
+width:60%;
+margin:auto;
+padding-top:40px;}
+
+#dashtable{
+width:100%;
+margin:auto;
+}
+
+.projpage{
+width:60%;
+margin:auto;
+padding-top:40px;}
+
+.projpage h4{
+margin-top:30px;
+}
+
+.suggestbox{
+width=80%;
+border: 3px orange solid;
+padding:7px; 15px;
+font-size:1.5em;
+text-align:center;
+margin-top:40px;
+margin-bottom:40px;
+}
+
+.makesuggestion{
+width:60%;
+margin:auto;
+padding-top:40px;
+text-align:center;
+}
+
+.tablecontainer{
+width:30%;
+margin:auto;
+}
+
+.projectdetails{
+width:30%;
+margin:auto;
+margin-bottom:40px;
+margin-top:40px;
+}
+
+
+.allprojpage{
+width:50%;
+margin:auto;
+margin-top:40px;
+}
+
+#priceleft{
+width:45%;
+float:left;
+display:block;
+margin-right:3%;
+text-align:left;
+margin-top:20px;
+}
+#priceright{
+width:45%;
+float:right;
+display:block;
+margin-left:3%;
+text-align:left;
+margin-top:20px;
+
+}
+
+#pricepage{
+width:60%;
+margin:auto;
+margin-top:30px;
+text-align:center;
+}
+
+#pricepage li{
+font-size:1.5em;
+}
+
+#pricepage h1{
+margin-bottom:30px;
+}
+
+.price {
+text-align:center;
+font-size:1.7em;}
+
+#priceright h3{
+text-align:center;
+}
+
+#priceleft h3{
+text-align:center;
+}
+
+.contentwrapper{
+width:60%;
+margin:auto;
+margin-top:40px;
+}
+
+.alert{
+margin-top:15px;
+margin-left:10px;
+margin-right:10px;
+}
+
+.projectform{
+margin-left:auto;
+margin-right:auto;
+max-width:600px;
+}
+
+.projectform h2{
+margin-top:40px;
+margin-bottom:35px;
+text-align:center;
+}
+
+.projectform p{
+font-size:1.2em;
+}
+
+.pinputfield{
+width:100%;
+height:43px;
+padding-left:1%;
+padding-right:1%;
+padding-top:2px;
+padding-bottom:2px;
+font-size:2.0em;
+}
+
+.tarea{
+height:200px;
+width:100%;
+padding-left:1%;
+padding-right:1%;
+padding-top:2px;
+padding-bottom:2px;
+font-size:2.0em;
+}
+
+.dropdownmenu{
+width:35%;
+font-size:1.4em;
+}
+
+.flash{
+color:red;
+}
+
+.defaultfooter{
+height:40px;
+}
+
+p{
+font-size:1.2em;
+}
+
+li{
+font-size: 1.2em;
+}
+
+.contentwrapper h2{
+margin-bottom:40px;
+}
+
+.instruction{
+border: 2px solid #22A7F0;
+background: #C5EFF7;
+padding:8px;
+width:40%;
+text-align:left;
+margin:auto;
+margin-top:30px;
+}
+
+#pricepoints{
+text-align:left;
+margin:auto;
+}
+
+
+.landingpagetitle{
+color:#064A79!important;
+}
+
+img {max-width:100%;}
+
+.bluebox{background:#7EC0EE;}
+.greenbox{background:green;}
+.orangebox{background:#f2683a;}
+
+#pricetop{
+    text-align:center;
+    padding-top:104px;
+    padding-bottom:124px;
+    overflow:auto;
+    width:50%;
+    margin:auto;
+font-family: 'Catamaran', sans-serif;
+}
+
+#pricemiddle{
+    text-align:center;
+    padding-top:104px;
+    padding-bottom:124px;
+    overflow:auto;
+    width:80%;
+    margin:auto;
+}
+
+footer td{
+padding-right:1em;
+padding-left:1em;
+}
+
+#pricetop h1{
+margin-bottom:1em;}
+
+.roundbutton{border-radius:2em;}
+.examplebox a{color:#FFF;}
+
+@media (max-width: 500px){
+    .buttonbox { width:100%;}
+    #headerboxoutside {padding-top: 30px;padding-bottom: 30px;}
+    #headerboxcontent {width:95%;overflow:auto;}
+    #pricepage {width:90%;margin-bottom:80px;}
+    #pricecontainer {width:100%;}
+    #priceleft{float:none;width:100%;margin-left:none;margin-right:none;}
+    #priceright{float:none;width:100%;margin-left:none;margin-right:none;}
+    .buttonbox{width:100%;}
+    .faqinside{width:85%;}
+    .faqright{float:none;width:100%;margin-left:none;margin-right:none;}
+    .faqleft{float:none;width:100%;margin-left:none;margin-right:none;}
+    .button-left{width:90%; float:none;margin:auto;}
+    .button-right{width:90%; float:none;margin:auto;}
+    .bigbuttonbox{width:100%;margin:auto;overflow:auto;}
+    .howitworks{width:90%;margin:auto;}
+    #exampleboxoutside{width:95%;margin:auto;}
+    .examplebox{display:block;width:95%; margin-right:2%;margin-left:2%;margin-bottom:20px;margin-top:20px;color:white;font-family: 'Catamaran', sans-serif;padding: 10px 10px 20px 10px;font-size:1.5em;}
+    .examplebox h2{font-weight:bold;margin-bottom:25px;margin-left:3%;margin-right:3%;}
+    .examplebox ul{margin-left:6%;}
+    #pricebox{background-color:#393d41;color:#FFF; width:90%;margin:auto;margin-top:2em;margin-bottom:2em;padding-top:2em; overflow:auto;   padding-bottom:3.5em;    padding-right:2em;    padding-left:2em;    font-family: 'Catamaran', sans-serif;}
+    .pricebuttonbox{width:100%;margin:auto;border-radius:2em;}
+    #pricebottominside{width:90%;text-align:center;margin:auto;}
+
+}
+
+@media (max-width: 740px) and (min-width: 501px) {
+    #headerboxoutside {padding-top: 30px;padding-bottom: 45px;}
+    #headerboxcontent {width:95%;overflow:auto;}
+    #pricepage {width:90%;margin-bottom:80px;}
+    #pricecontainer {width:100%;}
+    #priceleft{float:none;width:100%;margin-left:none;margin-right:none;}
+    #priceright{float:none;width:100%;margin-left:none;margin-right:none;}
+    .buttonleft{float:left;}
+    .buttonright{float:right;}
+    .buttonbox{width:47%;}
+    .bigbuttonbox{width:100%;margin:auto;overflow:auto;}
+    .faqinside{width:85%;}
+    .faqright{float:none;width:100%;margin-left:none;margin-right:none;}
+    .faqleft{float:none;width:100%;margin-left:none;margin-right:none;}
+    .buttonbox{margin-top:20px;margin:auto;}
+    .button-left{width:80%; float:none;margin:auto;}
+    .button-right{width:80%; float:none;margin:auto;}
+    .howitworks{width:80%;margin:auto;}
+    #exampleboxoutside{width:85%;margin:auto;}
+    .examplebox{display:block;width:95%; margin-right:2%;margin-left:2%;margin-bottom:20px;margin-top:20px;color:white;font-family: 'Catamaran', sans-serif;padding: 10px 10px 20px 10px;font-size:1.5em;}
+    .examplebox h2{font-weight:bold;margin-bottom:25px;margin-left:3%;margin-right:3%;}
+    .examplebox ul{margin-left:6%;}
+    #pricebox{background-color:#393d41;color:#FFF; width:80%;margin:auto;margin-top:2em;margin-bottom:2em;padding-top:2em; overflow:auto;   padding-bottom:3.5em;    padding-right:2em;    padding-left:2em;    font-family: 'Catamaran', sans-serif;}
+    .pricebuttonbox{width:100%;margin:auto;border-radius:2em;}
+    #pricebottominside{width:80%;text-align:center;margin:auto;}
+
+}
+
+
+@media (max-width: 930px) and (min-width: 741px) {
+    #headerboxoutside {padding-top: 30px;padding-bottom: 45px;}
+    #headerboxcontent {width:95%;overflow:auto;}
+    .buttonleft{float:left;}
+    .buttonright{float:right;}
+    .buttonbox{width:45%;}
+    .bigbuttonbox{width:90%;margin:auto;overflow:auto;}
+    #pricepage {width:90%;margin-bottom:80px;}
+    #pricecontainer {width:100%;}
+    #priceleft{float:none;width:100%;margin-left:none;margin-right:none;}
+    #priceright{float:none;width:100%;margin-left:none;margin-right:none;}
+    .faqinside{width:85%;}
+    .faqright{float:none;width:100%;margin-left:none;margin-right:none;}
+    .faqleft{float:none;width:100%;margin-left:none;margin-right:none;}
+    .buttonbox{margin-top:20px;}
+    .howitworks{width:70%;margin:auto;}
+    #exampleboxoutside{width:90%;margin:auto;margin-top:40px;overflow:auto;}
+    .examplebox{width:45%; margin-right:2%;margin-left:2%;color:white;font-family: 'Catamaran', sans-serif;padding: 10px 10px 20px 10px;font-size:1.5em;}
+    .examplebox h2{font-weight:bold;margin-bottom:25px;margin-left:3%;margin-right:3%;}
+    .examplebox ul{margin-left:6%;}
+    .exleft{float:left}
+    .exright{float:right}
+    #pricebox{background-color:#393d41;color:#FFF; width:70%;margin:auto;margin-top:2em;margin-bottom:2em;padding-top:2em; overflow:auto;   padding-bottom:3.5em;    padding-right:2em;    padding-left:2em;    font-family: 'Catamaran', sans-serif;}
+    .pricebuttonbox{width:80%;margin:auto;border-radius:2em;}
+    #pricebottominside{width:60%;text-align:center;margin:auto;}
+
+}
+
+@media (max-width: 1299px) and (min-width: 900px) {
+    #headerboxoutside{padding-top: 60px;padding-bottom: 90px;}
+    #headerboxcontent {overflow:auto;}
+    #pricepage {width:80%;margin-bottom:80px;}
+    #pricecontainer {width:100%;}
+    #headerboxcontent{width:80%;}
+    .buttonleft{float:left;}
+    .buttonright{float:right;}
+    .buttonbox{width:45%;}
+    .bigbuttonbox{width:80%;margin:auto;overflow:auto;}
+    .faqinside{width:85%;}
+    .howitworks{width:60%;margin:auto;}
+    #exampleboxoutside{width:80%;margin:auto;margin-top:40px;overflow:auto;}
+    .examplebox{width:45%; margin-right:2%;margin-left:2%;color:white;font-family: 'Catamaran', sans-serif;padding: 10px 10px 20px 10px;font-size:1.5em;}
+    .examplebox h2{font-weight:bold;margin-bottom:25px;margin-left:3%;margin-right:3%;}
+    .examplebox ul{margin-left:6%;}
+    .exleft{float:left}
+    .exright{float:right}
+    #pricebox{background-color:#393d41;    color:#FFF;    width:30%;    margin-right:1%;    margin-left:1%;    float:left;    overflow:auto;    padding-top:2em;    padding-bottom:3.5em;    padding-right:2em;    padding-left:2em;    font-family: 'Catamaran', sans-serif;}
+    .pricebuttonbox{width:80%;margin:auto;border-radius:2em;}
+    #pricebottominside{width:40%;text-align:center;margin:auto;}
+
+}
+
+@media (min-width: 1300px) {
+    #headerboxoutside{padding-top: 80px;padding-bottom: 120px;}
+    #headerboxcontent {overflow:auto;}
+    .howitworks{width:60%;margin:auto;}
+    .buttonleft{float:left;}
+    .buttonright{float:right;}
+    .buttonbox{width:45%;}
+    .bigbuttonbox{width:80%;margin:auto;overflow:auto;}
+    #exampleboxoutside{width:60%;margin:auto;margin-top:40px;overflow:auto;}
+    .examplebox{width:45%; margin-right:2%;margin-left:2%;color:white;font-family: 'Catamaran', sans-serif;padding: 10px 10px 20px 10px;font-size:1.5em;}
+    .examplebox h2{font-weight:bold;margin-bottom:25px;margin-left:3%;margin-right:3%;}
+    .examplebox ul{margin-left:6%;}
+    .exleft{float:left}
+    .exright{float:right}
+    #pricebox{background-color:#393d41;    color:#FFF;    width:30%;    margin-right:1%;    margin-left:1%;    float:left;    overflow:auto;    padding-top:2em;    padding-bottom:3.5em;    padding-right:4em;    padding-left:4em;    font-family: 'Catamaran', sans-serif;}
+    .pricebuttonbox{width:80%;margin:auto;border-radius:2em;}
+#pricebottominside{width:40%;text-align:center;margin:auto;}
+
+}
