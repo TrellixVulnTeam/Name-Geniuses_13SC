@@ -1,4 +1,12 @@
 
+.closing-menu{
+
+    width:100%;
+    background-color:red;
+    color:#FFF;
+    text-align:center;
+    
+}
 
 .container-fluid {
 padding:0px;
