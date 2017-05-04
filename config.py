@@ -2,7 +2,7 @@
 WTF_CSRF_ENABLED = True
 SECRET_KEY = 'you-will-never-guess'
 
-    
+
 import os
 basedir = os.path.abspath(os.path.dirname(__file__))
 
@@ -19,8 +19,8 @@ MAIL_SERVER = 'smtp.googlemail.com'
 MAIL_PORT = 465
 MAIL_USE_TLS = False
 MAIL_USE_SSL = True
-MAIL_USERNAME = 'dalecudmore@gmail.com'
-MAIL_PASSWORD='Seal1951'
+MAIL_USERNAME = 'username'
+MAIL_PASSWORD='pw'
 
 # administrator list
 ADMINS = ['dale@namegeniuses.com']
