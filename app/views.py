@@ -14,20 +14,6 @@ from .emails import send_email, newemailsignup,sendbulk
 from .decorators import check_confirmed, check_admin
 from .domain import checkDomain, subscribe
 
-stripetesting=False
-
-if stripetesting:
-    stripe_keys = {
-        'secret_key': 'sk_test_n8bhCzBDGLxqbPfCoz7HYeQl',
-        'publishable_key': 'pk_test_n00tOVxN8YpmQphYGRVclqLe'
-    }
-else:
-    stripe_keys = {
-    'secret_key': 'sk_live_vVTxxx3PArGZ7MxEqjqqz9TK',
-    'publishable_key': 'pk_live_w3Bjm1SkNDm5Hl6BYiHgndBY'
-    }
-
-stripe.api_key = stripe_keys['secret_key']
 
 @lm.user_loader
 def load_user(id):
